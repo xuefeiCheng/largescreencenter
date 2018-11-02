@@ -1441,7 +1441,7 @@ drewWuhanMap.drewWuhanMap();
 	                }
 				},
 				/* 是否开启鼠标缩放和平移漫游 */
-				roam: false,
+				// roam: false,
 				// roam: true,
 				// zoom:1.2,
 				itemStyle: {
