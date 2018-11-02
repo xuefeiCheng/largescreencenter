@@ -15,7 +15,7 @@
       </div>
       </div>
       <div class="case-center">
-        <div class="monit-num" style="left:0;">
+        <div class="monit-num" style="left:0;height:18%;">
           <div class="allnum-bg">
             <div class='allnum-inner-bg'>
               <div class="allnum-title">信息总量</div>
