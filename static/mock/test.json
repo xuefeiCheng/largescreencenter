@@ -1,0 +1,132 @@
+{
+  "name":[
+    {
+      "value": "养老机构",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "金融业",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "房地产",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "虚拟理财",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "其他",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "电子商务",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "融资租赁",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "地方交易所",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "担保",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "非金融机构支付服务",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "保险",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "民办教育机构",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "租赁和商务服务业",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "私募股权投资基金",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "小额贷款",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "其他",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "网络借贷平台",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    },
+    {
+      "value": "投资咨询",
+      "textStyle": {
+        "color": "#fff",
+        "fontSize": 16
+      }
+    }
+    
+  ],
+  "value":[1,1,1,3,3,4,4,7,7,7,10,11,24,32,32,4,105,134]
+}

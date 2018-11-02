@@ -1,0 +1,469 @@
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+img,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+form,
+table {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+}
+
+body {
+    color: white;
+    overflow: hidden;
+    font-size: 14px;
+    font-family: "Microsoft YaHei", "微软雅黑", "Arial";
+}
+
+div {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    vertical-align: middle;
+}
+.mainMap-risk {
+	height:30px;
+	background:red;
+	border-radius:4px;
+}
+.clear {
+    clear: both;
+}
+
+.monitor-title {
+	margin-left:-10px;
+}
+
+.caseinfo-main-container {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    /* padding-top: 30px; */
+    font-size: 35px;
+    font-weight: normal;
+   	background: url('../images/map_bg.png') no-repeat;
+    background-size: cover;
+}
+
+.caseinfo-main-container a {
+    color: #fff;
+}
+.big-title {
+	text-align:center;
+ 	font-family: '微软雅黑';
+ 	background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(#fff), to(#005fd4));
+ 	-webkit-background-clip: text;
+ 	-webkit-text-fill-color: transparent;
+}
+
+.caseinfo-main-container .caseinfo-header {
+    position: relative;
+    height: 50px;
+    text-align: center;
+}
+
+.caseinfo-main-container .caseinfo-header .header-title {
+    position: relative;
+    color: #00ffff;
+    font-size: 32px;
+	background-image:url(../images/11.png);
+	background-size:100% 100%;
+}
+
+.caseinfo-main-container .caseinfo-header .header-title .left-line {
+    position: relative;
+    height: 5px;
+    width: 260px;
+    margin-bottom: 7px;
+    margin-right: 30px;
+    display: inline-block;
+    background: -webkit-linear-gradient(left, rgb(0, 0, 0), rgb(45, 255, 254));
+}
+
+.caseinfo-main-container .caseinfo-header .header-title .right-line {
+    position: relative;
+    height: 5px;
+    width: 260px;
+    margin-bottom: 7px;
+    margin-left: 30px;
+    display: inline-block;
+    background: -webkit-linear-gradient(left, rgb(45, 255, 254), rgb(0, 0, 0));
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper {
+    position: relative;
+    width: 100%;
+    /* height: 970px; chm 10.15 */
+    height: 930px; 
+    margin-top: 25px;
+    text-align: center
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left {
+    position: relative;
+    float: left;
+    width: 23%;
+    height: 100%;
+	margin-left:20px;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-right {
+    position: relative;
+    float: left;
+    width: 25%;
+    height: 100%;
+}
+/* 清除浮动 */
+.clearfix:after{
+    /* 设置内容为空 */
+    content:"";
+    /* 高度为0 */
+    height:0;
+    /* 行高为0 */
+    line-height:0;
+    /* 将文本转为块级元素 */
+    display:block;
+    /* 将元素隐藏 */
+    visibility:hidden;
+    /* 清除浮动 */
+    clear:both
+}
+.clearfix{
+    zoom:1;  
+    /* 为了兼容IE */
+    }
+/* .case-right .caseinfo-footer{
+    position: absolute;
+    bottom: 0;
+    left: (1920/2)px;
+    left: 960px;
+    margin-left: -250px;
+} */
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-bar {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    /* border: 1px solid #1596f8; */
+    font-size: 14px;
+	background-image:url(../images/02.png);
+	background-size:100% 100%;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-bar .title {
+    position: absolute;
+    left: 0;
+    right: 0;
+	top:-4px;
+    text-align: center;
+    /*margin-top: 10px;*/
+    font-size: 28px;
+    font-weight: normal;
+    height: 50px;
+	color:#82c6ec;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-bar .bar-content {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 50px);
+    top: 50px;
+}
+.riskCount {
+	position: relative;
+    width: 100%;
+    height: calc(100% - 50px);
+    top: 50px;
+}
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-bar .divide-dots-container circle {
+    fill: #868a8f;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-bar .axis-container text {
+    fill: #fff;
+    font-size: 16px;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-bar .axis-container .domain {
+    visibility: hidden;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-bar .bar-chart-explain {
+    font-size: 16px;
+    fill: #25f6f1;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-bar .divide-line-container .divide-line {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.3);
+}
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line {
+    position: relative;
+    width: 100%;
+    height: 45%;
+	margin-top:20px; 
+	background-image:url(../images/02.png);
+	background-size:100% 100%;
+    /* border: 1px solid #2ef9f7; */
+}
+
+/* .caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line  .line-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+} */
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line .title {
+    text-align: center;
+    font-weight: normal;
+    font-size: 28px;
+    /*padding-top: 10px;*/
+	position:relative;
+	top:-4px;
+	color:#82c6ec;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line .line-content {
+    position: relative;
+    width: 100%;
+    /* height: 100%; */
+    height: calc(100% - 40px);
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line .axis-container .domain {
+    visibility: hidden;
+    /*stroke: #fff;*/
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line .axis-container line {
+    fill: none;
+    stroke: #fff;
+    shape-rendering: crispEdges;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line .axis-container text {
+    fill: #fff;
+    font-size: 16px;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line  .horizental-line-container .horizental-line {
+    fill: none;
+    stroke-width: 2px;
+    stroke: rgba(1, 239, 231, .3);
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line .vertical-line-container .vertical-line {
+    stroke-width: 2px;
+    stroke: rgba(1, 239, 231, .3);
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line .vertical-line-container .vertical-line.even {
+    stroke: transparent;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line .vertical-line-container .vertical-bg {
+    fill: rgba(255, 255, 255, 0.0980392);
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line .vertical-line-container .vertical-bg.even {
+    fill: transparent;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-left .case-line .line-path-container .line-path {
+    animation: dash linear 0s normal both;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-right .case-pie {
+ 	position: relative;
+    width: 100%;
+    height: 33%;
+    /* border: 1px solid #1596f8; */
+    font-size: 14px;
+	background-image:url(../images/02.png);
+	background-size:100% 100%;
+}
+.caseinfo-main-container .caseinfo-content-wrapper .case-right .case-pie .title {
+    position: absolute;
+    left: 0;
+    right: 0;
+	top:-5px;
+    text-align: center;
+    /*margin-top: 10px;*/
+    font-size: 28px;
+    font-weight: normal;
+    height: 50px;
+	color:#82c6ec;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-right .risktrend {
+    
+    /* 2018-10-25 更改 */
+    position: relative;
+    width: 100%;
+    height: 90%;
+    margin-top: 70px;
+    background-image:url(../images/02.png);
+    background-size: 100% 111%;
+    background-position: 0px 274px;
+}
+.caseinfo-main-container .caseinfo-content-wrapper .case-right .risktrend .title {
+    position: absolute;
+    left: 0;
+    right: 0;
+	top:-5px;
+    text-align: center;
+    /*margin-top: 10px;*/
+    font-size: 28px;
+    font-weight: normal;
+    height: 50px;
+	color:#82c6ec;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-right .industryTrends {
+ 	position: relative;
+    width: 100%;
+    height: 90%;
+	margin-top:20px; 
+    background-image:url(../images/02.png);
+    /* 2018-10-25 更改 */
+    /* background-size:100% 100%; */
+    background-size: 100% 111%;
+    background-position: 0 274px;    
+}
+.caseinfo-main-container .caseinfo-content-wrapper .case-right .industryTrends .title {
+    position: absolute;
+    left: 0;
+    right: 0;
+	top:-5px;
+    text-align: center;
+    /*margin-top: 10px;*/
+    font-size: 28px;
+    font-weight: normal;
+    height: 50px;
+	color:#82c6ec;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-center {
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+.caseinfo-main-container .caseinfo-content-wrapper .case-center .monit-num{
+    position: absolute;
+    top: 0;
+	left:80px;
+	height:20%;
+	width:100%;
+	font-size:26px;
+	color:#00c3f4;
+	text-align:center;
+   /* background: rgba(160, 219, 6, .5);*/
+    /* background-color: transparent; */
+    /* border: 1px solid #a0db06; */
+    z-index: 99;
+}
+.monit-num-1{
+    position: absolute;
+    top: 0;
+	left:30px;
+	/* height:20%; */
+	width:100%;
+	font-size:20px;
+	color:#00c3f4;
+	text-align:center;
+   /* background: rgba(160, 219, 6, .5);*/
+    /* background-color: transparent; */
+    /* border: 1px solid #a0db06; */
+    z-index: 99;
+}
+.monit-num-2{
+    position: absolute;
+	left:30px;
+    bottom:10px;
+    color:#00c3f4;
+    text-align:center;
+    font-size:20px;
+}
+
+.bg-monitor-1{
+    background-image:url(../images/03.png);
+    background-size: 100% 100%;
+      background-repeat: no-repeat;
+      height: 50%;
+      /* padding-top: 50px;
+      padding-right: 14px; */
+      padding: 20px;
+      width: 150px;
+      font-size: 32px;
+  }
+.caseinfo-main-container .caseinfo-content-wrapper .case-center .monit-num .bg-monitor {
+	background-image:url(../images/03.png);
+	background-size:90% 100%;
+	background-repeat:no-repeat;
+	height:50%;
+	padding-top:50px;
+	padding-right:14px;
+	font-size:32px;
+}
+.caseinfo-main-container .caseinfo-content-wrapper .case-center .case-map {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+	height:85%;
+   	/*background: rgba(160, 219, 6, .5);*/
+    /* background-color: transparent; */
+    /* border: 1px solid #a0db06; */
+	/*background-image:url(../images/06.png);*/
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+    z-index: 99;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-right .case-pie #pie_content {
+    width: 100%;
+    height: 100%;
+}
+
+.caseinfo-main-container .caseinfo-content-wrapper .case-right .case-pie .circle {
+    position: absolute;
+    width: 108px;
+    height: 108px;
+   /* background: url('../images/circle1.png') no-repeat;*/
+    z-index: 500;
+    top: 269px;
+    left: 218px;
+    background-size: 108px;
+}
