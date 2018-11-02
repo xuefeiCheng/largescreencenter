@@ -412,8 +412,9 @@ function timeTicket() {
                 }
             },
 			regions: customSettings,
-			roam: true,
-			zoom:1.2,
+			// 地图控制 是否缩放+拖拽 move 和 scale
+			roam: false,
+			zoom:1.1,
 			itemStyle: {
                 normal: {
                     // borderColor: 'rgba(147, 235, 248, 1)',
