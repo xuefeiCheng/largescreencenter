@@ -26,7 +26,6 @@ require('echarts/lib/chart/custom')
 require('echarts/lib/component/graphic')
 require('echarts/lib/component/grid')
 require('echarts/lib/component/legendScroll')
-require('echarts/lib/component/tooltip')
 require('echarts/lib/component/axisPointer')
 require('echarts/lib/component/polar')
 require('echarts/lib/component/geo')
@@ -34,7 +33,6 @@ require('echarts/lib/component/parallel')
 require('echarts/lib/component/singleAxis')
 require('echarts/lib/component/brush')
 require('echarts/lib/component/calendar')
-require('echarts/lib/component/title')
 require('echarts/lib/component/dataZoom')
 require('echarts/lib/component/visualMap')
 require('echarts/lib/component/markPoint')
@@ -71,66 +69,21 @@ var drawHeatmap = function() {
         "北京华赢凯来资产管理有限公司武汉第一分公司":[114.32,30.35],
         "深圳前海全民通金融资本控股集团有限公司武昌分公司":[114.3310,30.5227],
         "武汉三三玉茶坊企业管理有限公司":[114.08 ,30.32]
-      }
+	  }
 	var BJData = [
-        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'硚口区',value:95}],
-        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'武昌区',value:90}],
-        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'汉阳区',value:80}],
-        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'东西湖区',value:70}],
-        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'江夏区',value:60}],
-        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'江夏区',value:50}],
-        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'新洲区',value:40}],
-        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'蔡甸区',value:30}],
-        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'江岸区',value:20}],
-        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'新洲区',value:10}]
+        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'蔡甸区',value:95}]
     ];
     var SHData = [
-        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'蔡甸区',value:95}],
-        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'江岸区',value:90}],
-        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'江岸区',value:80}],
-        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'新洲区',value:70}],
-        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'蔡甸区',value:60}],
-        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'新洲区',value:50}],
-        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'新洲区',value:40}],
-        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'汉阳区',value:30}],
-        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'武昌区',value:20}],
-        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'蔡甸区',value:10}]
+        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'蔡甸区',value:95}]
     ];
     var SXData = [
-        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'蔡甸区',value:95}],
-        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'武昌区',value:90}],
-        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'新洲区',value:80}],
-        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'新洲区',value:70}],
-        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'武昌区',value:60}],
-        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'武昌区',value:50}],
-        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'武昌区',value:40}],
-        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'武昌区',value:30}],
-        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'蔡甸区',value:20}],
-        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'汉阳区',value:10}]
+        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'蔡甸区',value:95}]
     ];
     var OEData = [
-        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'汉阳区',value:95}],
-        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'武昌区',value:90}],
-        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'江岸区',value:80}],
-        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'汉阳区',value:70}],
-        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'江岸区',value:60}],
-        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'汉阳区',value:50}],
-        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'江岸区',value:40}],
-        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'汉阳区',value:30}],
-        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'江岸区',value:20}],
-        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'汉阳区',value:10}]
+        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'汉阳区',value:95}]
     ];
     var ZHdata = [
-        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'江夏区',value:95}],
-        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'汉阳区',value:90}],
-        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'汉阳区',value:80}],
-        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'汉阳区',value:70}],
-        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'江夏区',value:60}],
-        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'汉阳区',value:50}],
-        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'江夏区',value:40}],
-        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'汉阳区',value:30}],
-        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'江夏区',value:20}],
-        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'武昌区',value:10}]
+        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'汉阳区',value:95}]
     ];
 	var companyData = {
 		"硕利链付宝（武汉）网络科技有限公司":{"mScore":75,"riskDescribe":"1、帮呗经营模式涉嫌传销2.涉嫌庞氏骗局<br> 3.涉嫌违规经营<br> 4.存在经营异常"},
@@ -326,7 +279,7 @@ var drawHeatmap = function() {
 			series5 = [];
 		}
 	});
-	//console.log(series3);
+	console.log(series3);
 	//console.log(series);
 	var rltData = [{
         name: '江岸区',
