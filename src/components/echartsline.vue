@@ -54,28 +54,28 @@
             <div class="riskCount">
               <div class="title" style="top:-50px;">监测统计</div>
               <!-- 第一行 -->
-              <div class="row" style="height:50%;margin-left:30px;">
+              <div class="row" style="height:50%;position:relative;">
                <div class="monit-num-1">
                   <div class="" style="height:150%;width:32%;float:left;margin-left:40px;">
                     <div class="bg-monitor-1">49909</div>
-                    <div class="monitor-title">监测企业总数</div>
+                    <div class="monitor-title-1">监测企业总数</div>
                   </div>
                   <div class="" style="height:150%;width:32%;float:left;margin-left:40px;">
                     <div class="bg-monitor-1">709</div>
-                    <div class="monitor-title">风险企业总数</div>
+                    <div class="monitor-title-1">风险企业总数</div>
                   </div>
                 </div>
               </div>
               <!-- 第二行 -->
-              <div class="row" style="height:50%;margin-left:30px;">
-                <div class="monit-num-2">
+              <div class="row" style="height:50%;position:relative;">
+                <div class="monit-num-1">
                   <div class="" style="height:150%;width:32%;float:left;margin-left:40px;">
                     <div class="bg-monitor-1">59</div>
-                    <div class="monitor-title">高风险企业数</div>
+                    <div class="monitor-title-1">高风险企业数</div>
                   </div>
-                  <div class="" style="height:150%;width:32%;float:left;margin-left:70px;">
+                  <div class="" style="height:150%;width:32%;float:left;margin-left:40px;">
                     <div class="bg-monitor-1">221</div>
-                    <div class="monitor-title">重点监测企业数</div>
+                    <div class="monitor-title-1">重点监测企业数</div>
                   </div>
                 </div>
               </div>

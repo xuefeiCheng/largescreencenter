@@ -57,6 +57,9 @@ img {
 .monitor-title {
 	margin-left:-10px;
 }
+.monitor-title-1{
+    margin: auto;
+}
 
 .caseinfo-main-container {
     position: relative;
