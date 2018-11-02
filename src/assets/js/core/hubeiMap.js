@@ -49,8 +49,8 @@ require('echarts/lib/component/title')
 import drewWuhanMap from '@/assets/js/wuhanMap.js'
 drewWuhanMap.drewWuhanMap();
 var drawHeatmap = function() {
-    var myChartMap = echarts.init(document.getElementById('case-map'));
-    var geoCoordMap = {
+	var myChartMap = echarts.init(document.getElementById('case-map'));
+	var geoCoordMap = {
         "江岸区":[114.30 ,30.60],
         "江汉区":[114.27 ,30.60],
         "硚口区":[114.27 ,30.57],
@@ -63,13 +63,16 @@ var drawHeatmap = function() {
         "蔡甸区":[114.03 ,30.58],
         "江夏区":[114.32,30.35],
         "黄陂区":[114.37 ,30.87],
-        "新洲区":[114.80,30.85],
+        "新洲区":[114.80,30.85]
+	  };
+	  var companyPosition = {
         "硕利链付宝（武汉）网络科技有限公司":[114.7904,30.85],
         "深圳市佰仟金融服务有限公司武汉分公司":[114.18 ,30.3902],
         "北京华赢凯来资产管理有限公司武汉第一分公司":[114.32,30.35],
         "深圳前海全民通金融资本控股集团有限公司武昌分公司":[114.3310,30.5227],
         "武汉三三玉茶坊企业管理有限公司":[114.08 ,30.32]
 	  }
+	geoCoordMap = $.extend({}, geoCoordMap, companyPosition);
 	var BJData = [
         [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'蔡甸区',value:95}]
     ];
@@ -84,7 +87,9 @@ var drawHeatmap = function() {
     ];
     var ZHdata = [
         [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'汉阳区',value:95}]
-    ];
+	];
+	
+	// 地图 tip展示 数据
 	var companyData = {
 		"硕利链付宝（武汉）网络科技有限公司":{"mScore":75,"riskDescribe":"1、帮呗经营模式涉嫌传销2.涉嫌庞氏骗局<br> 3.涉嫌违规经营<br> 4.存在经营异常"},
 		"深圳市佰仟金融服务有限公司武汉分公司":{"mScore":74,"riskDescribe":"1.频繁变更工商信息2.存在涉诉信息3.存在失信被执行人信息<br> 4.网曝涉嫌诈骗"},
@@ -279,7 +284,7 @@ var drawHeatmap = function() {
 			series5 = [];
 		}
 	});
-	console.log(series3);
+	// console.log(series3);
 	//console.log(series);
 	var rltData = [{
         name: '江岸区',
