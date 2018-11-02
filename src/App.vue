@@ -38,6 +38,7 @@ export default {
      // this.$store.commit('toState',res);
     //  数据存储至 sessionstroage中
       sessionStorage.setItem('toState',JSON.stringify(res)); 
+      // const data = JSON.parse(sessionStorage.getItem('toState')); 
     }
   },
   mounted:function(){

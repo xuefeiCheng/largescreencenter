@@ -20,7 +20,7 @@
             <div class='allnum-inner-bg'>
               <div class="allnum-title">信息总量</div>
               <div class="allnum-content">
-                <h1 style='display:inline-block;padding-right:5px;'>24578,91</h1>
+                <h1 style='display:inline-block;padding-right:5px;'>{{allnum}}</h1>
                 <span class='allnum-font'>条</span>
               </div>
             </div>
@@ -57,11 +57,11 @@
               <div class="row" style="height:50%;position:relative;">
                <div class="monit-num-1">
                   <div class="" style="height:150%;width:32%;float:left;margin-left:40px;">
-                    <div class="bg-monitor-1">49909</div>
+                    <div class="bg-monitor-1">{{num1}}</div>
                     <div class="monitor-title-1">监测企业总数</div>
                   </div>
                   <div class="" style="height:150%;width:32%;float:left;margin-left:40px;">
-                    <div class="bg-monitor-1">709</div>
+                    <div class="bg-monitor-1">{{num2}}</div>
                     <div class="monitor-title-1">风险企业总数</div>
                   </div>
                 </div>
@@ -70,11 +70,11 @@
               <div class="row" style="height:50%;position:relative;">
                 <div class="monit-num-1">
                   <div class="" style="height:150%;width:32%;float:left;margin-left:40px;">
-                    <div class="bg-monitor-1">59</div>
+                    <div class="bg-monitor-1">{{num3}}</div>
                     <div class="monitor-title-1">高风险企业数</div>
                   </div>
                   <div class="" style="height:150%;width:32%;float:left;margin-left:40px;">
-                    <div class="bg-monitor-1">221</div>
+                    <div class="bg-monitor-1">{{num4}}</div>
                     <div class="monitor-title-1">重点监测企业数</div>
                   </div>
                 </div>
@@ -154,6 +154,15 @@ import {drawRiskNum,drawBar,drawLine,drawRiskTrend,drawIndustryTrends} from '@/a
 import drawHeatmap from '@/assets/js/core/hubeiMap.js'
 export default {
   name: 'caseinfo',
+  data:function(){
+    return{ 
+      allnum:'24578,91',//信息总量   
+      num1:49909,// 监测企业总数      
+      num2:709,// 风险企业总数
+      num3:59, // 高风险企业数
+      num4:221// 重点监测企业数
+    }
+  },
   methods:{},
   mounted:function(){
     setTime.setTime();

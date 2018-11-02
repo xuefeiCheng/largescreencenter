@@ -55,6 +55,13 @@ drewWuhanMap.drewWuhanMap();
 	function drawLine () {
 		const data = JSON.parse(sessionStorage.getItem('toState')); // => 返回testKey对应的值
 		var myChart = echarts.init(document.getElementById('line-content'));
+		//数据集合
+		var dataObj = {
+			'name':['养老机构','金融业','房地产','虚拟理财','其他','电子商务','融资租赁',
+					'地方交易所','担保','非金融机构支付服务','保险','民办教育机构','租赁和商务服务业',
+					'私募股权投资基金','小额贷款','其他','网络借贷平台','投资咨询'],
+			'value':[1,1,1,3,3,4,4,7,7,7,10,11,24,32,32,4,105,134]
+		};
 		var option = {
 			tooltip: {
 				trigger: 'axis',
@@ -76,135 +83,34 @@ drewWuhanMap.drewWuhanMap();
 			},
 			yAxis: {
 				type: 'category',
-				data: [
-					{
-					  "value": "养老机构",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "金融业",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "房地产",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "虚拟理财",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "其他",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "电子商务",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "融资租赁",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "地方交易所",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "担保",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "非金融机构支付服务",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "保险",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "民办教育机构",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "租赁和商务服务业",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "私募股权投资基金",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "小额贷款",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "其他",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "网络借贷平台",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
-					},
-					{
-					  "value": "投资咨询",
-					  "textStyle": {
-						"color": "#fff",
-						"fontSize": 16
-					  }
+				axisLabel:{
+					textStyle: {
+						color: '#fff',
+						"fontSize": 15
 					}
+				},
+				data:dataObj.name,
+				// data: [
+				// 	{"value": "养老机构"},
+				// 	{"value": "金融业"},
+				// 	{"value": "房地产"},
+				// 	{"value": "虚拟理财"},
+				// 	{"value": "其他"},
+				// 	{"value": "电子商务"},
+				// 	{"value": "融资租赁"},
+				// 	{"value": "地方交易所"},
+				// 	{"value": "担保"},
+				// 	{"value": "非金融机构支付服务"},
+				// 	{"value": "保险"},
+				// 	{"value": "民办教育机构"},
+				// 	{"value": "租赁和商务服务业"},
+				// 	{"value": "私募股权投资基金"},
+				// 	{"value": "小额贷款"},
+				// 	{"value": "其他"},
+				// 	{"value": "网络借贷平台"},
+				// 	{"value": "投资咨询"}
 					
-				  ],
+				//   ],
 				splitLine:{
 					show:false	
 				},
@@ -255,8 +161,8 @@ drewWuhanMap.drewWuhanMap();
 							}], false)
 						}
 					},
-					
-					data: [1,1,1,3,3,4,4,7,7,7,10,11,24,32,32,4,105,134]
+					data: dataObj.value
+					// data: [1,1,1,3,3,4,4,7,7,7,10,11,24,32,32,4,105,134]
 				}
 			]
 		};
@@ -265,6 +171,15 @@ drewWuhanMap.drewWuhanMap();
 
 	//分级预警
 	function drawRiskNum () {
+		// 分级预警 数据
+		var dataLists = {
+			'qmpc':{value:80,Fvalue:282},
+			'zcjc':{value:23,Fvalue:121},
+			'gfxyj':{value:42,Fvalue:214},
+			'zdjc':{value:51,Fvalue:331},
+			'dcjr':{value:62,Fvalue:3113},
+			'ycmd':{value:11,Fvalue:131}
+		};
 		// 全面排查
 		var qmpcChart = echarts.init(document.getElementById("qmpc"));
 		// 正常监测
@@ -280,206 +195,385 @@ drewWuhanMap.drewWuhanMap();
 	    
 		var qmpcOption = {
 			grid: {
-				top:'2%',
+				top: '2%',
 				left: '3%',
 				right: '4%',
 				bottom: '3%',
-				containLabel: true 
+				containLabel: true
 			},
-	        series : [
-	            {
-					type:'pie',
-	                silent:true,
-	                radius: ['80%', '100%'],
-	                label: {
-	                    normal: {
-	                        show:true,
-	                        position: 'center'
-	                    }
-	                },
-	                hoverAnimation: false,
-	                data:[
-	                    // chm 10.19 
-	                    // {value:39049-32927, name:'84.3%',itemStyle:{normal:{color:"rgba(2, 61, 78,0.75)"}},label:{normal:{textStyle:{color:"#fff"}}}},
-	                    {value:4, name:'95.924%',itemStyle:{normal:{color:"rgba(2, 61, 78,0.75)"}},label:{normal:{textStyle:{color:"#fff"}}}},
-	                    {value:95.924, name:'',itemStyle:{normal:{color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-	                                offset: 0,
-	                                color: '#d51965'
-	                            }, {
-	                                offset: 1,
-	                                color: '#e207e9'
-	                            }]),textStyle:{fontSize:"10px"}}}},
-	                ]
-	            }
-	        ]
-	    };
+			series: [{
+				type: 'pie',
+				silent: true,
+				radius: ['80%', '100%'],
+				label: {
+					normal: {
+						show: true,
+						position: 'center'
+					}
+				},
+				hoverAnimation: false,
+				color:'#486d77',
+				data: [{
+					value: dataLists.qmpc.value,
+					name: '',
+					label: {
+						normal: {
+							formatter: '{d} %',
+							textStyle: {
+								fontSize: 12,
+								color: '#fff'
+							}
+						}
+					},
+					itemStyle: {
+						normal: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: '#d51965'
+							}, {
+								offset: 1,
+								color: '#e207e9'
+							}]),
+							textStyle: {
+								fontSize: "10px"
+							}
+						}
+					}
+				}, {
+					value: dataLists.qmpc.Fvalue,
+					name: '',
+					label: {
+						normal: {
+							show: false
+						}
+					},
+					
+					itemStyle: {
+						normal: {
+							color: "rgba(2, 61, 78,0.75)"
+						}
+					}
+					
+				}]
+			}]
+		};
 	            
 	    var zcjcOption = {
 			grid: {
-				top:'2%',
+				top: '2%',
 				left: '3%',
 				right: '4%',
 				bottom: '3%',
-				containLabel: true 
+				containLabel: true
 			},
-	         series : [
-	            {
-					type:'pie',
-	                silent:true,
-	                animation:false,
-	                radius: ['80%', '100%'],
-	                label: {
-	                    normal: {
-	                        show:true,
-	                        position: 'center'
-	                    }
-	                },
-	                hoverAnimation: false,
-	                data:[
-	                    {value:96.925 , name:'3.075%',itemStyle:{normal:{color:"rgba(2, 61, 78,0.75)"}},label:{normal:{textStyle:{color:"#fff"}}}},
-	                    {value:3.075, name:'',itemStyle:{normal:{color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-	                                offset: 0,
-	                                color: '#ed7e5b'
-	                            }, {
-	                                offset: 1,
-	                                color: '#c12e3b'
-	                            }]),textStyle:{fontSize:"10px",color:"#fff"}}}},
-	                ]
-	            }
-	        ]     
-	    };
+			series: [{
+				type: 'pie',
+				silent: true,
+				radius: ['80%', '100%'],
+				label: {
+					normal: {
+						show: true,
+						position: 'center'
+					}
+				},
+				hoverAnimation: false,
+				data: [{
+					value: dataLists.zcjc.value,
+					name: '',
+		
+					label: {
+						normal: {
+							formatter: '{d} %',
+							textStyle: {
+								fontSize: 12,
+								color: '#fff'
+							}
+						}
+					},
+		
+					itemStyle: {
+						normal: {
+							normal: {
+								color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+									offset: 0,
+									color: '#ed7e5b'
+								}, {
+									offset: 1,
+									color: '#c12e3b'
+								}]),
+								textStyle: {
+									fontSize: "10px",
+									color: "#fff"
+								}
+							}
+						}
+					}
+				}, {
+					value: dataLists.zcjc.Fvalue,
+					name: '',
+					label: {
+						normal: {
+							show: false
+						}
+					},
+					itemStyle: {
+						normal: {
+							color: "rgba(2, 61, 78,0.75)"
+						}
+					},
+				}]
+			}]
+		};
+		
 	     var gfxyjOption = {
-			 grid: {
-				top:'2%',
-				left: '3%',
-				right: '4%',
-				bottom: '3%',
-				containLabel: true 
-			},
-	         series : [
-	            {
-	                type:'pie',
-					silent:true,
-	                radius: ['80%', '100%'],
-	                label: {
-	                    show:false,
-	                    normal: {
-	                        position: 'center'
-	                    }
-	                },
-	                hoverAnimation: false,
-	                data:[
-	                    {value:99, name:'0.181%',itemStyle:{normal:{color:"rgba(2, 61, 78,0.75)"}},label:{normal:{textStyle:{color:"#fff"}}}},
-	                    {value:1, name:'',itemStyle:{normal:{color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-	                                offset: 0,
-	                                color: '#4b7fc9'
-	                            }, {
-	                                offset: 1,
-	                                color: '#60e3f2'
-	                            }]),textStyle:{fontSize:"10px"}}}},
-	                ]
-	            }
-	        ]     
-	    };
-	    var zdjcOption = {
-			 grid: {
-				top:'2%',
-				left: '3%',
-				right: '4%',
-				bottom: '3%',
-				containLabel: true 
-			},
-	         series : [
-	            {
-	                type:'pie',
-					silent:true,
-	                radius: ['80%', '100%'],
-	                label: {
-	                    normal: {
-	                        show:true,
-	                        position: 'center'
-	                    }
-	                },
-	                hoverAnimation: false,
-	                data:[
-	                    {value:39049-167, name:'0.4%',itemStyle:{normal:{color:"rgba(2, 61, 78,0.75)"}},label:{normal:{textStyle:{color:"#fff"}}}},
-	                    {value:167, name:'',itemStyle:{normal:{color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-	                                offset: 0,
-	                                color: '#f08f5d'
-	                            }, {
-	                                offset: 1,
-	                                color: '#ef5d61'
-	                            }]),textStyle:{fontSize:"10px"}}}},
-	                ]
-	            }
-	        ]     
-	    };
-	    var dcjrOption = {
 			grid: {
-				top:'2%',
+				top: '2%',
 				left: '3%',
 				right: '4%',
 				bottom: '3%',
-				containLabel: true 
+				containLabel: true
 			},
-	         series : [
-	            {
-	                type:'pie',
-					silent:true,
-	                radius: ['80%', '100%'],
-	                label: {
-	                    normal: {
-	                        show:true,
-	                        position: 'center'
-	                    }
-	                },
-	                hoverAnimation: false,
-	                data:[
-	                    {value:39049-1598, name:'4.1%',itemStyle:{normal:{color:"rgba(2, 61, 78,0.75)"}},label:{normal:{textStyle:{color:"#fff"}}}},
-	                    {value:1598, name:'',itemStyle:{normal:{color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-	                                offset: 0,
-	                                color: '#49c681'
-	                            }, {
-	                                offset: 1,
-	                                color: '#51a8c6'
-	                            }]),textStyle:{fontSize:"10px",color:"#fff"}}}},
-	                ]
-	            }
-	        ]     
-	    };
+			series: [{
+				type: 'pie',
+				silent: true,
+				radius: ['80%', '100%'],
+				label: {
+					normal: {
+						show: true,
+						position: 'center'
+					}
+				},
+				hoverAnimation: false,
+				data: [{
+					value: dataLists.gfxyj.value,
+					name: '',
+					label: {
+						normal: {
+							formatter: '{d} %',
+							textStyle: {
+								fontSize: 12,
+								color: '#fff'
+							}
+						}
+					},
+		
+					itemStyle: {
+						normal: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: '#4b7fc9'
+							}, {
+								offset: 1,
+								color: '#60e3f2'
+							}]),
+							textStyle: {
+								fontSize: "10px"
+							}
+						}
+					}
+				}, {
+					value: dataLists.gfxyj.Fvalue,
+					name: '',
+					label: {
+						normal: {
+							show: false
+						}
+					},
+					itemStyle: {
+						normal: {
+							color: "rgba(2, 61, 78,0.75)"
+						}
+					}
+				}]
+			}]
+		};
+	    var zdjcOption = {
+			grid: {
+				top: '2%',
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			series: [{
+				type: 'pie',
+				silent: true,
+				radius: ['80%', '100%'],
+				label: {
+					normal: {
+						show: true,
+						position: 'center'
+					}
+				},
+				hoverAnimation: false,
+				data: [{
+					value: dataLists.zdjc.value,
+					name: '',
+		
+					label: {
+						normal: {
+							formatter: '{d} %',
+							textStyle: {
+								fontSize: 12,
+								color: '#fff'
+							}
+						}
+					},
+		
+					itemStyle: {
+						normal: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: '#f08f5d'
+							}, {
+								offset: 1,
+								color: '#ef5d61'
+							}]),
+							textStyle: {
+								fontSize: "10px"
+							}
+						}
+					}
+				}, {
+					value: dataLists.zdjc.Fvalue,
+					name: '',
+					label: {
+						normal: {
+							show: false
+						}
+					},
+					itemStyle: {
+						normal: {
+							color: "rgba(2, 61, 78,0.75)"
+						}
+					}
+				}]
+			}]
+		};
+	    var dcjrOption =  {
+			grid: {
+				top: '2%',
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			series: [{
+				type: 'pie',
+				silent: true,
+				radius: ['80%', '100%'],
+				label: {
+					normal: {
+						show: true,
+						position: 'center'
+					}
+				},
+				hoverAnimation: false,
+				data: [{
+					value: dataLists.dcjr.value,
+					name: '',
+		
+					label: {
+						normal: {
+							formatter: '{d} %',
+							textStyle: {
+								fontSize: 12,
+								color: '#fff'
+							}
+						}
+					},
+		
+					itemStyle: {
+						normal: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: '#49c681'
+							}, {
+								offset: 1,
+								color: '#51a8c6'
+							}]),
+							textStyle: {
+								fontSize: "10px",
+								color: "#fff"
+							}
+						}
+					}
+				}, {
+					value: dataLists.dcjr.Fvalue,
+					name: '',
+					label: {
+						normal: {
+							show: false
+						}
+					},
+					itemStyle: {
+						normal: {
+							color: "rgba(2, 61, 78,0.75)"
+						}
+					}
+				}]
+			}]
+		};
 	    var ycmdOption = {
-			 grid: {
-				top:'2%',
+			grid: {
+				top: '2%',
 				left: '3%',
 				right: '4%',
 				bottom: '3%',
-				containLabel: true 
+				containLabel: true
 			},
-	         series : [
-	            {
-	                type:'pie',
-					silent:true,
-	                radius: ['80%', '100%'],
-	                label: {
-	                    show:false,
-	                    normal: {
-	                        position: 'center'
-	                    }
-	                },
-	                hoverAnimation: false,
-	                data:[
-	                    {value:39049-1206, name:'3.1%',itemStyle:{normal:{color:"rgba(2, 61, 78,0.75)"}},label:{normal:{textStyle:{color:"#fff"}}}},
-	                    {value:1206, name:'',itemStyle:{normal:{color:new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-	                                offset: 0,
-	                                color: '#5e62dd'
-	                            }, {
-	                                offset: 1,
-	                                color: '#844cdb'
-	                            }])}}},
-	                ]
-	            }
-	        ]     
-	    };
+			series: [{
+				type: 'pie',
+				silent: true,
+				radius: ['80%', '100%'],
+				label: {
+					normal: {
+						show: true,
+						position: 'center'
+					}
+				},
+				hoverAnimation: false,
+				data: [{
+					value: dataLists.ycmd.value,
+					name: '',
+		
+					label: {
+						normal: {
+							formatter: '{d} %',
+							textStyle: {
+								fontSize: 12,
+								color: '#fff'
+							}
+						}
+					},
+		
+					itemStyle: {
+						normal: {
+							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								offset: 0,
+								color: '#5e62dd'
+							}, {
+								offset: 1,
+								color: '#844cdb'
+							}])
+						}
+					}
+				}, {
+					value: dataLists.ycmd.Fvalue,
+					name: '',
+					label: {
+						normal: {
+							show: false
+						}
+					},
+					itemStyle: {
+						normal: {
+							color: "rgba(2, 61, 78,0.75)"
+						}
+					}
+				}]
+			}]
+		};
 		qmpcChart.setOption(qmpcOption);
 	    zcjcChart.setOption(zcjcOption);
 	    gfxyjChart.setOption(gfxyjOption);
@@ -489,6 +583,12 @@ drewWuhanMap.drewWuhanMap();
 	}
 	//风险企业地区分布
 	function drawBar () {
+		//数据集合
+		var dataObjBar = {
+			'name':['经济技术开发区','蔡甸区','江夏区','东西湖区','青山区','汉阳区','东湖高新区',
+					'硚口区','洪山区','江岸区','江汉区'],
+			'value':[1,2,5,6,8,16,16,17,27,36,85,208]
+		};
 		var myChartBar = echarts.init(document.getElementById('bar-content'));
 		var optionBar = {
 			tooltip: {
@@ -511,20 +611,27 @@ drewWuhanMap.drewWuhanMap();
 			},
 			yAxis: {
 				type: 'category',
-				data: [
-					{value:'经济技术开发区',textStyle:{color:"#fff",fontSize:15}},
-					{value:'蔡甸区',textStyle:{color:"#fff",fontSize:15}},
-					{value:'江夏区',textStyle:{color:"#fff",fontSize:15}},
-					{value:'东西湖区',textStyle:{color:"#fff",fontSize:15}},
-					{value:'青山区',textStyle:{color:"#fff",fontSize:15}},
-					{value:'汉阳区',textStyle:{color:"#fff",fontSize:15}},
-					{value:'东湖高新区',textStyle:{color:"#fff",fontSize:15}},
-					{value:'硚口区 ',textStyle:{color:"#fff",fontSize:15}},
-					{value:'洪山区',textStyle:{color:"#fff",fontSize:15}},
-					{value:'江岸区',textStyle:{color:"#fff",fontSize:15}},
-					{value:'江汉区',textStyle:{color:"#fff",fontSize:15}},
-					{value:'武昌区',textStyle:{color:"#fff",fontSize:15}} 
-				],
+				axisLabel:{
+					textStyle: {
+						color: '#fff',
+						"fontSize": 15
+					}
+				},
+				data:dataObjBar.name,
+				// data: [
+				// 	{value:'经济技术开发区'},
+				// 	{value:'蔡甸区'},
+				// 	{value:'江夏区'},
+				// 	{value:'东西湖区'},
+				// 	{value:'青山区'},
+				// 	{value:'汉阳区'},
+				// 	{value:'东湖高新区'},
+				// 	{value:'硚口区 '},
+				// 	{value:'洪山区'},
+				// 	{value:'江岸区'},
+				// 	{value:'江汉区'},
+				// 	{value:'武昌区'} 
+				// ],
 				splitLine:{
 					show:false	
 				},
@@ -574,9 +681,10 @@ drewWuhanMap.drewWuhanMap();
 								color: '#f37e7f' // 100% 处的颜色
 							}], false)
 						}
-	        		},
+					},
+					data:dataObjBar.value
 					// data: [250,337,525,675,869, 956,1151,1218,2107,3132] chm 10.19
-					data: [1,2,5,6,8,16,16,17,27,36,85,208]
+					// data: [1,2,5,6,8,16,16,17,27,36,85,208]
 				}
 			]
 		};
@@ -584,6 +692,13 @@ drewWuhanMap.drewWuhanMap();
 	}
 	//企业风险走势
 	function drawRiskTrend () {
+		//数据集合
+		var dataRiskTrend  = {
+			'time':['10/19','10/20','10/21','10/22','10/23','10/24','10/25',
+					'10/26','10/27','10/28','10/29'],
+			'value':[78,85,86,78,70,80,85,79,79,80,78],
+			'value1':[32,33,32,34,33,34,35,34,33,33,32]
+		};
 		var myChart = echarts.init(document.getElementById('risktrend'));
 		var colors = ['#000','#5793f3', '#d14a61', '#675bba'];
 		var option = {
@@ -593,19 +708,20 @@ drewWuhanMap.drewWuhanMap();
 			xAxis: {
 				type: 'category',
 				boundaryGap: false, 
-				data: [
-					{value:"10/19"},
-				   	{value:"10/20"},
-				   	{value:"10/21"},
-				   	{value:"10/22"},
-				   	{value:"10/23"},
-				   	{value:"10/24"},
-				   	{value:"10/25"},
-					{value:"10/26"},
-					{value:"10/27"},
-					{value:"10/28"},
-					{value:"10/29"}
-				],
+				data:dataRiskTrend.time,
+				// data: [
+				// 	{value:"10/19"},
+				//    	{value:"10/20"},
+				//    	{value:"10/21"},
+				//    	{value:"10/22"},
+				//    	{value:"10/23"},
+				//    	{value:"10/24"},
+				//    	{value:"10/25"},
+				// 	{value:"10/26"},
+				// 	{value:"10/27"},
+				// 	{value:"10/28"},
+				// 	{value:"10/29"}
+				// ],
 				axisLabel :{  
 					interval:0 ,
 					color:'#fff',
@@ -681,7 +797,8 @@ drewWuhanMap.drewWuhanMap();
 				yAxisIndex: 0,
 				type: 'line',
 				smooth: true,
-				data: [78,85,86,78,70,80,85,79,79,80,78],
+				data:dataRiskTrend.value,
+				// data: [78,85,86,78,70,80,85,79,79,80,78],
 				animation: false,
 				label:{
 					normal:{
@@ -698,7 +815,8 @@ drewWuhanMap.drewWuhanMap();
 				type: 'line',
 				smooth: true,
 				color: colors[3],
-				data: [32,33,32,34,33,34,35,34,33,33,32],
+				data:dataRiskTrend.value1,
+				// data: [32,33,32,34,33,34,35,34,33,33,32],
 				animation: false,
 				label:{
 					normal:{
