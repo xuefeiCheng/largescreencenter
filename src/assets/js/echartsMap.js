@@ -48,6 +48,9 @@ require('zrender/lib/vml/vml')
 // 引入提示框和title组件
 require('echarts/lib/component/tooltip')
 require('echarts/lib/component/title')
+
+// 引入 水球
+import echartsLiquidfill from 'echarts-liquidfill'//在这里引入
 // 引入 武汉 基本地图
 import drewWuhanMap from '@/assets/js/wuhanMap.js'
 drewWuhanMap.drewWuhanMap();
@@ -202,6 +205,47 @@ drewWuhanMap.drewWuhanMap();
 				containLabel: true
 			},
 			series: [{
+				type: 'liquidFill',
+				itemStyle: {
+					normal: {
+						opacity: 0.4,
+						shadowBlur: 0,
+						shadowColor: 'blue'
+					}
+				},
+				radius: '80%',
+				name: 'nnnnn',
+				data: [{
+					value: 0.6,
+					itemStyle: {
+						normal: {
+							color: '#53d5ff',
+							opacity: 0.6
+						}
+					}
+				}],
+				// background: '#fff',
+				color: ['#53d5ff'],
+				center: ['50%', '50%'],
+				backgroundStyle: {
+					color: '#fff'
+				},
+				label: {
+					normal: {
+						formatter: '',
+						textStyle: {
+							fontSize: 12
+						}
+					}
+				},
+				outline: {
+					itemStyle: {
+						borderColor: '#86c5ff',
+						borderWidth: 0
+					},
+					borderDistance: 0
+				}
+			},{
 				type: 'pie',
 				silent: true,
 				radius: ['80%', '100%'],
@@ -221,7 +265,7 @@ drewWuhanMap.drewWuhanMap();
 							formatter: '{d} %',
 							textStyle: {
 								fontSize: 12,
-								color: '#fff'
+								color: "rgba(2, 61, 78,0.75)"
 							}
 						}
 					},
