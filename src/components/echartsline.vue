@@ -16,8 +16,11 @@
       </div>
       <div class="case-center">
         <div class="monit-num" style="left:0;">
-          <div style="position:relative;height:100%;width:50%;margin:auto;border: 1px solid #3f80af;box-shadow: 0px 0 5px #ccc;">
-            <div style="position: absolute;top: 50%;left: 50%;height: 40px;width: 200px;margin-top: -20px;margin-left: -100px;">数字展示区域</div>
+          <div class="allnum-bg">
+            <div class='allnum-inner-bg'>
+              <div class="allnum-title">信息总量</div>
+              <div class="allnum-content">数字展示区域</div>
+            </div>
           </div>
           <!-- <div class="" style="height:150%;width:18%;float:left;">
             <div class="bg-monitor">49909</div>

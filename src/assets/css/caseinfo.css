@@ -338,6 +338,42 @@ img {
     background-size: 100% 111%;
     background-position: 0px 274px;
 }
+/* 信息总量 */
+.allnum-bg{
+    position:relative;
+    margin-top: 70px;
+    background-image:url(../images/02.png);
+    background-size: 100% 100%;
+    height:100%;
+    width:50%;
+    margin:auto;
+    /* border: 1px solid #3f80af;box-shadow: 0px 0 5px #ccc; */
+}
+.allnum-inner-bg{
+    width: 100%;
+    height:100%;
+    background-color:rgba(48, 79, 255, 0.5);
+}
+.allnum-title{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 40px;
+    width: 200px;
+    margin-top: -20px;
+    margin-left: -100px;
+    font-size: 32px;
+    font-weight: bold;
+}
+.allnum-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 40px;
+    width: 200px;
+    margin-top: -20px;
+    margin-left: -100px;
+}
 .caseinfo-main-container .caseinfo-content-wrapper .case-right .risktrend .title {
     position: absolute;
     left: 0;
