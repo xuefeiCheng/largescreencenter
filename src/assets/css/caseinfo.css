@@ -468,15 +468,15 @@ img {
 }
 
 .bg-monitor-1{
-    background-image:url(../images/03.png);
-    background-size: 100% 100%;
+      background-image:url(../images/03.png);
+      background-size: 66% 100%;
       background-repeat: no-repeat;
-      height: 50%;
-      /* padding-top: 50px;
-      padding-right: 14px; */
-      padding: 20px;
+      /* height: 53%; */
+      padding: 32px 20px;
+      /* padding-top: 50px; */
       width: 150px;
-      font-size: 32px;
+      background-position: center;
+      font-size: 18px;
   }
 .caseinfo-main-container .caseinfo-content-wrapper .case-center .monit-num .bg-monitor {
 	background-image:url(../images/03.png);
