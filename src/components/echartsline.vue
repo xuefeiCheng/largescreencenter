@@ -19,7 +19,10 @@
           <div class="allnum-bg">
             <div class='allnum-inner-bg'>
               <div class="allnum-title">信息总量</div>
-              <div class="allnum-content">数字展示区域</div>
+              <div class="allnum-content">
+                <h1 style='display:inline-block;padding-right:5px;'>24578,91</h1>
+                <span class='allnum-font'>条</span>
+              </div>
             </div>
           </div>
           <!-- <div class="" style="height:150%;width:18%;float:left;">
