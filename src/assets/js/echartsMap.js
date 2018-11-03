@@ -264,7 +264,7 @@ drewWuhanMap.drewWuhanMap();
 						normal: {
 							formatter: '{d} %',
 							textStyle: {
-								fontSize: 12,
+								fontSize: 14,
 								color: "rgba(2, 61, 78,0.75)"
 							}
 						}
