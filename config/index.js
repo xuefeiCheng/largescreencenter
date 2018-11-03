@@ -12,12 +12,12 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://192.168.2.53:8080',
         //接口的域名
         //secure: false 如果是https接口，需要配置
-        //changeOrigin: true 如果接口跨域，需要进行这个参数的配置
+        changeOrigin: true ,//如果接口跨域，需要进行这个参数的配置
         pathRewrite: {
-            '^/api': '/static/mock/'
+            '^/api': '/'
         }
       }
     },

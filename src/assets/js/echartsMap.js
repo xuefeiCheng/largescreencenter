@@ -59,12 +59,13 @@ drewWuhanMap.drewWuhanMap();
 		const data = JSON.parse(sessionStorage.getItem('toState')); // => 返回testKey对应的值
 		var myChart = echarts.init(document.getElementById('line-content'));
 		//数据集合
-		var dataObj = {
-			'name':['养老机构','金融业','房地产','虚拟理财','其他','电子商务','融资租赁',
-					'地方交易所','担保','非金融机构支付服务','保险','民办教育机构','租赁和商务服务业',
-					'私募股权投资基金','小额贷款','其他','网络借贷平台','投资咨询'],
-			'value':[1,1,1,3,3,4,4,7,7,7,10,11,24,32,32,4,105,134]
-		};
+		// var dataObj = {
+		// 	'classify':['养老机构','金融业','房地产','虚拟理财','其他','电子商务','融资租赁',
+		// 			'地方交易所','担保','非金融机构支付服务','保险','民办教育机构','租赁和商务服务业',
+		// 			'私募股权投资基金','小额贷款','其他','网络借贷平台','投资咨询'],
+		// 	'count':[1,1,1,3,3,4,4,7,7,7,10,11,24,32,32,4,105,134]
+		// };
+		const dataObj = JSON.parse(sessionStorage.getItem('hyfb'));
 		var option = {
 			tooltip: {
 				trigger: 'axis',
@@ -73,10 +74,10 @@ drewWuhanMap.drewWuhanMap();
 				}
 			},
 			grid: {
-				top:'0%',
-				left: '8%',
-				right: '8%',
-				bottom: '3%',
+				top:'0',
+				left: '-50',
+				right: '0',
+				bottom: '3',
 				containLabel: true 
 			},
 			xAxis: {
@@ -92,7 +93,7 @@ drewWuhanMap.drewWuhanMap();
 						"fontSize": 15
 					}
 				},
-				data:dataObj.name,
+				data:dataObj.classify,
 				// data: [
 				// 	{"value": "养老机构"},
 				// 	{"value": "金融业"},
@@ -164,7 +165,7 @@ drewWuhanMap.drewWuhanMap();
 							}], false)
 						}
 					},
-					data: dataObj.value
+					data: dataObj.count
 					// data: [1,1,1,3,3,4,4,7,7,7,10,11,24,32,32,4,105,134]
 				}
 			]
@@ -175,14 +176,16 @@ drewWuhanMap.drewWuhanMap();
 	//分级预警
 	function drawRiskNum () {
 		// 分级预警 数据
-		var dataLists = {
-			'qmpc':{value:80,Fvalue:282},
-			'zcjc':{value:23,Fvalue:121},
-			'gfxyj':{value:42,Fvalue:214},
-			'zdjc':{value:51,Fvalue:331},
-			'dcjr':{value:62,Fvalue:3113},
-			'ycmd':{value:11,Fvalue:131}
-		};
+		// var dataLists = {
+		// 	'qmpc':{value:80,Fvalue:282},
+		// 	'zcjc':{value:23,Fvalue:121},
+		// 	'gfxyj':{value:42,Fvalue:214},
+		// 	'zdjc':{value:51,Fvalue:331},
+		// 	'dcjr':{value:62,Fvalue:3113},
+		// 	'ycmd':{value:11,Fvalue:131}
+		// };
+		const dataLists = JSON.parse(sessionStorage.getItem('fjyj'));
+
 		// 全面排查
 		var qmpcChart = echarts.init(document.getElementById("qmpc"));
 		// 正常监测
@@ -216,7 +219,8 @@ drewWuhanMap.drewWuhanMap();
 				radius: '80%',
 				name: 'nnnnn',
 				data: [{
-					value: 0.6,
+					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
+					value:0.6,
 					itemStyle: {
 						normal: {
 							color: '#53d5ff',
@@ -224,11 +228,18 @@ drewWuhanMap.drewWuhanMap();
 						}
 					}
 				}],
+				period: function (value, index) {
+					// This function is called four times, each for a data item in series.
+					// `value` is 0.6, 0.5, 0.4, 0.3, and `index` is 0, 1, 2, 3.
+					return 1000 * index + 1000;
+				},
 				// background: '#fff',
+				background:'rgba(0,0,0,0.1)',
 				color: ['#53d5ff'],
 				center: ['50%', '50%'],
 				backgroundStyle: {
-					color: '#fff'
+					// 背景颜色
+					color: 'rgba(0,0,0,0.1)'
 				},
 				label: {
 					normal: {
@@ -265,7 +276,8 @@ drewWuhanMap.drewWuhanMap();
 							formatter: '{d} %',
 							textStyle: {
 								fontSize: 14,
-								color: "rgba(2, 61, 78,0.75)"
+								// color: "rgba(2, 61, 78,0.75)"
+								color: "#fff"
 							}
 						}
 					},
@@ -627,12 +639,13 @@ drewWuhanMap.drewWuhanMap();
 	}
 	//风险企业地区分布
 	function drawBar () {
+		const dataObjBar = JSON.parse(sessionStorage.getItem('dqfb'));
 		//数据集合
-		var dataObjBar = {
-			'name':['经济技术开发区','蔡甸区','江夏区','东西湖区','青山区','汉阳区','东湖高新区',
-					'硚口区','洪山区','江岸区','江汉区'],
-			'value':[1,2,5,6,8,16,16,17,27,36,85,208]
-		};
+		// var dataObjBar = {
+		// 	'name':['经济技术开发区','蔡甸区','江夏区','东西湖区','青山区','汉阳区','东湖高新区',
+		// 			'硚口区','洪山区','江岸区','江汉区'],
+		// 	'value':[1,2,5,6,8,16,16,17,27,36,85,208]
+		// };
 		var myChartBar = echarts.init(document.getElementById('bar-content'));
 		var optionBar = {
 			tooltip: {
