@@ -747,12 +747,40 @@ drewWuhanMap.drewWuhanMap();
 		};
 		myChartBar.setOption(optionBar);
 	}
+	// 计算时间
+	var myDate = new Date();//获取系统当前时间
+var Syear = myDate.getFullYear();
+var Smonth = myDate.getMonth() + 1;
+var SstrDate = myDate.getDate();
+var fo = new Date(myDate.getTime() - (10 * 24 * 60 * 60 * 1000)).toLocaleDateString();
+var startTimeArr = fo.split('/');
+// 日期格式化
+function formatTime(time,spliter){
+    var d = new Date(time);
+    var year = d.getFullYear();
+    var month = d.getMonth() >= 10 ? d.getMonth() : ('0' + d.getMonth());
+    var day = d.getDate() >= 10 ? d.getDate() : ('0' + d.getDate());
+    // return year+spliter+month+spliter+day;
+    return month+spliter+day;
+}
+// 获取日期
+function getdate(){
+    var arr=new Array();
+    var endTime= new Date(Syear,Smonth,SstrDate).getTime();
+    var startTime = new Date(startTimeArr[0],startTimeArr[1],startTimeArr[2]).getTime();
+    for( var i = startTime ; i <= endTime ; ){
+      arr.push(formatTime(i,'-'));
+      i += 24 * 60 * 60 * 1000;
+    }
+    return arr;
+}
 	//企业风险走势
 	function drawRiskTrend () {
 		//数据集合
 		var dataRiskTrend  = {
-			'time':['10/19','10/20','10/21','10/22','10/23','10/24','10/25',
-					'10/26','10/27','10/28','10/29'],
+			// 'time':['10/19','10/20','10/21','10/22','10/23','10/24','10/25',
+			// 		'10/26','10/27','10/28','10/29'],
+			'time':getdate(),
 			'value':[78,85,86,78,70,80,85,79,79,80,78],
 			'value1':[32,33,32,34,33,34,35,34,33,33,32]
 		};
