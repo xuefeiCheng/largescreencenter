@@ -64,9 +64,45 @@ function cutString(str, len) {
 	}
 	return result
   }
+/**参数说明： 
+ 
+ * 根据输入信息 返回 随机数
+ 
+ * obj 对象
+	obj={
+		base:'基础数值',
+		max:'最大范围',
+		min:'最小范围',
+		count:'个数',
+		scope:'自定义范围'
+	}
+	**优先级 优先 max min 
+	若max min scope 同时存在，优先max min
+ 
+ * 返回值： 处理结果字符串 
+ 
+ */
+function getRandom(obj){
 
-  
+	var res = [];
+	var scope=0;
+	if(obj.min && obj.max){
+		console.log("min&&max")
+		scope = (obj.max-obj.min+1)+obj.min
+	}else if(obj.min){
+		console.log("min")
+		scope = obj.min+1;
+	}else{
+		console.log("others")
+		scope = obj.scope
+	}
+	for(var i=0;i<obj.count;i++){
+		res.push(parseInt(obj.base+Math.random()*scope,10))
+	}
+	return res;
+}
 export {
 	cutStringByKey,
-	cutString
+	cutString,
+	getRandom
 }

@@ -48,7 +48,7 @@ require('zrender/lib/vml/vml')
 // 引入提示框和title组件
 require('echarts/lib/component/tooltip')
 require('echarts/lib/component/title')
-
+import {getRandom} from '@/assets/js/totalMathods.js'
 // 引入 水球
 import echartsLiquidfill from 'echarts-liquidfill'//在这里引入
 // 引入 武汉 基本地图
@@ -1027,8 +1027,22 @@ function getdate(){
 			// 'time':['10/19','10/20','10/21','10/22','10/23','10/24','10/25',
 			// 		'10/26','10/27','10/28','10/29'],
 			'time':getdate(),
-			'value':[78,85,86,78,70,80,85,79,79,80,78],
-			'value1':[32,33,32,34,33,34,35,34,33,33,32]
+			// 'value':[78,85,86,78,70,80,85,79,79,80,78],
+			'value':getRandom({
+				base:70,
+				max:'',
+				min:'',
+				count:10,
+				scope:8
+			}),
+			// 'value1':[32,33,32,34,33,34,35,34,33,33,32]
+			'value1':getRandom({
+				base:30,
+				max:'',
+				min:'',
+				count:10,
+				scope:3
+			})
 		};
 		var myChart = echarts.init(document.getElementById('risktrend'));
 		var colors = ['#000','#5793f3', '#d14a61', '#675bba'];
