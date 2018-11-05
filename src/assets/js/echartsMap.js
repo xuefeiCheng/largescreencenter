@@ -1182,7 +1182,7 @@ function getdate(){
 		myChart.setOption(option);
 		}
 		drewEcharts();
-		setInterval(drewEcharts,60000*60*24);
+		setInterval(drewEcharts,60*1000*60*24);
 	}
 	//企业规模与风险
 	function drawIndustryTrends () {
