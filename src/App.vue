@@ -51,8 +51,11 @@ export default {
       };
       // var gfxCount = 0;
       res.allCaseList.map(function(item,index,arr){
-        data.name.push(item.dom);
-        data.value.push(item.count.count);
+        if(item.dom !='武汉'){
+          data.name.push(item.dom);
+          data.value.push(item.count.count);
+        }
+       
         // gfxCount += item.count.count;
         return data;
       })
@@ -141,7 +144,9 @@ export default {
         }  
       }
       this.gfxCount = res['高风险预警'];
-      this.fxCount = totalCount-Number(res['正常监测']);
+      // this.fxCount = totalCount-Number(res['正常监测']);
+      this.fxCount = Number(res['重点监测'])+Number(res['高风险预警'])+
+      Number(res['调查介入'])+Number(res['P2P企业异常名单'])+Number(res['立案企业名单'])
       this.zdjcCout = res['重点监测'];
       var dataLists = {
 			'qmpc':{value:res['正常监测'],Fvalue:totalCount},//建议关注
