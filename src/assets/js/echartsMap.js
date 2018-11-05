@@ -220,7 +220,7 @@ drewWuhanMap.drewWuhanMap();
 				name: 'nnnnn',
 				data: [{
 					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
-					value:0.6,
+					value:0.7,
 					itemStyle: {
 						normal: {
 							// 53d5ff原始 颜色
@@ -336,7 +336,7 @@ drewWuhanMap.drewWuhanMap();
 				name: 'nnnnn',
 				data: [{
 					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
-					value:0.6,
+					value:0.55,
 					itemStyle: {
 						normal: {
 							color: '#c12e3b',
@@ -452,7 +452,7 @@ drewWuhanMap.drewWuhanMap();
 				name: 'nnnnn',
 				data: [{
 					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
-					value:0.6,
+					value:0.5,
 					itemStyle: {
 						normal: {
 							color: '#60e3f2',
@@ -563,7 +563,7 @@ drewWuhanMap.drewWuhanMap();
 				name: 'nnnnn',
 				data: [{
 					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
-					value:0.6,
+					value:0.33,
 					itemStyle: {
 						normal: {
 							color: '#ef5d61',
@@ -675,7 +675,7 @@ drewWuhanMap.drewWuhanMap();
 				name: 'nnnnn',
 				data: [{
 					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
-					value:0.6,
+					value:0.36,
 					itemStyle: {
 						normal: {
 							color: '#51a8c6',
@@ -788,7 +788,7 @@ drewWuhanMap.drewWuhanMap();
 				name: 'nnnnn',
 				data: [{
 					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
-					value:0.6,
+					value:0.35,
 					itemStyle: {
 						normal: {
 							color: '#844cdb',

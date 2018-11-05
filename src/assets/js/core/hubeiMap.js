@@ -80,6 +80,37 @@ function cutString(str, len) {
 	} 
 	return s; 
   } 
+/**参数说明： 
+ 
+ * 根据关键词截取字符串
+ 
+ * arguments 对象字符串 数组
+ 
+ * 返回值： 处理结果字符串 
+ 
+ */
+  function cutStringByKey(str,argumentsArr){
+	var flag = 0;
+	var index = [];
+	var Index;
+	for(var i=0,le=argumentsArr.length;i<=le;i++){
+	  if(str.indexOf(argumentsArr[i])== -1){
+		flag = 0;
+		index.push(999999);
+	  }else{
+		flag = 1;
+		index.push(str.indexOf(argumentsArr[i]));
+	  }
+	}
+	Index = Math.min.apply(null, index);
+	var result ='';
+	if(flag== 1){
+	  result = str;
+	}else{
+	  result = str.substr(Index);
+	}
+	return result
+  }
 import drewWuhanMap from '@/assets/js/wuhanMap.js'
 drewWuhanMap.drewWuhanMap();
 var drawHeatmap = function() {
@@ -147,7 +178,9 @@ var drawHeatmap = function() {
 		dataObjBar.forEach(function(currentValue, index, arr){
 			// console.log(currentValue)
 			if(currentValue._id == k){
-				currentValue.abstract = currentValue.abstract=='' ? '暂无数据' :currentValue.abstract
+				var resultDData = cutStringByKey(currentValue.abstract,['企业主要风险点：','企业主要风险点为：','主要风险点:']);
+				// currentValue.abstract = currentValue.abstract=='' ? '暂无数据' :currentValue.abstract
+				currentValue.abstract = resultDData == '' ? '暂无数据' : resultDData;
 				companyData[currentValue.name] = {
 					mScore:currentValue.score,
 					// riskDescribe:cutString(currentValue.abstract,50)
@@ -400,7 +433,8 @@ function timeTicket() {
 			formatter:function(obj){
 				var companyName = obj.seriesName;
 				return '<div style="border-bottom: 1px solid #cccccc;padding-bottom: 5px; margin-bottom: 5px;font-size:20px;">' + companyName + '</div>'
-				+ '<div style="text-align:left;margin-top:10px;"><div style="float:left;width:500px;overflow:hidden;margin-right:10px;">'+ companyData[companyName].riskDescribe + '</div>'
+				// width:500px;overflow:hidden;
+				+ '<div style="text-align:left;margin-top:10px;"><div style="float:left;margin-right:10px;">'+ companyData[companyName].riskDescribe + '</div>'
 				+ '<div style="float:right;width:70px;height:80px;text-align:center;border:1px solid #fba430;background:#fba430;"><div>冒烟指数</div><div style="font-size:26px;margin-top:14px;">' + companyData[companyName].mScore + '</div></div></div>';
 			}
 		},
