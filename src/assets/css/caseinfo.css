@@ -339,7 +339,7 @@ img {
     margin-top: 70px;
     background-image:url(../images/02.png);
     background-size: 100% 111%;
-    background-position: 0px 274px;
+    background-position: 0px 0px;
 }
 /* 信息总量 */
 .allnum-bg{
