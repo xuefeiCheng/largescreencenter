@@ -223,7 +223,8 @@ drewWuhanMap.drewWuhanMap();
 					value:0.6,
 					itemStyle: {
 						normal: {
-							color: '#53d5ff',
+							// 53d5ff原始 颜色
+							color: '#e207e9',
 							opacity: 0.6
 						}
 					}
@@ -323,6 +324,55 @@ drewWuhanMap.drewWuhanMap();
 				containLabel: true
 			},
 			series: [{
+				type: 'liquidFill',
+				itemStyle: {
+					normal: {
+						opacity: 0.4,
+						shadowBlur: 0,
+						shadowColor: 'blue'
+					}
+				},
+				radius: '80%',
+				name: 'nnnnn',
+				data: [{
+					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
+					value:0.6,
+					itemStyle: {
+						normal: {
+							color: '#c12e3b',
+							opacity: 0.6
+						}
+					}
+				}],
+				period: function (value, index) {
+					// This function is called four times, each for a data item in series.
+					// `value` is 0.6, 0.5, 0.4, 0.3, and `index` is 0, 1, 2, 3.
+					return 1000 * index + 1000;
+				},
+				// background: '#fff',
+				background:'rgba(0,0,0,0.1)',
+				color: ['#53d5ff'],
+				center: ['50%', '50%'],
+				backgroundStyle: {
+					// 背景颜色
+					color: 'rgba(0,0,0,0.1)'
+				},
+				label: {
+					normal: {
+						formatter: '',
+						textStyle: {
+							fontSize: 12
+						}
+					}
+				},
+				outline: {
+					itemStyle: {
+						borderColor: '#86c5ff',
+						borderWidth: 0
+					},
+					borderDistance: 0
+				}
+			},{
 				type: 'pie',
 				silent: true,
 				radius: ['80%', '100%'],
@@ -390,6 +440,55 @@ drewWuhanMap.drewWuhanMap();
 				containLabel: true
 			},
 			series: [{
+				type: 'liquidFill',
+				itemStyle: {
+					normal: {
+						opacity: 0.4,
+						shadowBlur: 0,
+						shadowColor: 'blue'
+					}
+				},
+				radius: '80%',
+				name: 'nnnnn',
+				data: [{
+					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
+					value:0.6,
+					itemStyle: {
+						normal: {
+							color: '#60e3f2',
+							opacity: 0.6
+						}
+					}
+				}],
+				period: function (value, index) {
+					// This function is called four times, each for a data item in series.
+					// `value` is 0.6, 0.5, 0.4, 0.3, and `index` is 0, 1, 2, 3.
+					return 1000 * index + 1000;
+				},
+				// background: '#fff',
+				background:'rgba(0,0,0,0.1)',
+				color: ['#53d5ff'],
+				center: ['50%', '50%'],
+				backgroundStyle: {
+					// 背景颜色
+					color: 'rgba(0,0,0,0.1)'
+				},
+				label: {
+					normal: {
+						formatter: '',
+						textStyle: {
+							fontSize: 12
+						}
+					}
+				},
+				outline: {
+					itemStyle: {
+						borderColor: '#86c5ff',
+						borderWidth: 0
+					},
+					borderDistance: 0
+				}
+			},{
 				type: 'pie',
 				silent: true,
 				radius: ['80%', '100%'],
@@ -452,6 +551,55 @@ drewWuhanMap.drewWuhanMap();
 				containLabel: true
 			},
 			series: [{
+				type: 'liquidFill',
+				itemStyle: {
+					normal: {
+						opacity: 0.4,
+						shadowBlur: 0,
+						shadowColor: 'blue'
+					}
+				},
+				radius: '80%',
+				name: 'nnnnn',
+				data: [{
+					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
+					value:0.6,
+					itemStyle: {
+						normal: {
+							color: '#ef5d61',
+							opacity: 0.6
+						}
+					}
+				}],
+				period: function (value, index) {
+					// This function is called four times, each for a data item in series.
+					// `value` is 0.6, 0.5, 0.4, 0.3, and `index` is 0, 1, 2, 3.
+					return 1000 * index + 1000;
+				},
+				// background: '#fff',
+				background:'rgba(0,0,0,0.1)',
+				color: ['#53d5ff'],
+				center: ['50%', '50%'],
+				backgroundStyle: {
+					// 背景颜色
+					color: 'rgba(0,0,0,0.1)'
+				},
+				label: {
+					normal: {
+						formatter: '',
+						textStyle: {
+							fontSize: 12
+						}
+					}
+				},
+				outline: {
+					itemStyle: {
+						borderColor: '#86c5ff',
+						borderWidth: 0
+					},
+					borderDistance: 0
+				}
+			},{
 				type: 'pie',
 				silent: true,
 				radius: ['80%', '100%'],
@@ -515,6 +663,55 @@ drewWuhanMap.drewWuhanMap();
 				containLabel: true
 			},
 			series: [{
+				type: 'liquidFill',
+				itemStyle: {
+					normal: {
+						opacity: 0.4,
+						shadowBlur: 0,
+						shadowColor: 'blue'
+					}
+				},
+				radius: '80%',
+				name: 'nnnnn',
+				data: [{
+					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
+					value:0.6,
+					itemStyle: {
+						normal: {
+							color: '#51a8c6',
+							opacity: 0.6
+						}
+					}
+				}],
+				period: function (value, index) {
+					// This function is called four times, each for a data item in series.
+					// `value` is 0.6, 0.5, 0.4, 0.3, and `index` is 0, 1, 2, 3.
+					return 1000 * index + 1000;
+				},
+				// background: '#fff',
+				background:'rgba(0,0,0,0.1)',
+				color: ['#53d5ff'],
+				center: ['50%', '50%'],
+				backgroundStyle: {
+					// 背景颜色
+					color: 'rgba(0,0,0,0.1)'
+				},
+				label: {
+					normal: {
+						formatter: '',
+						textStyle: {
+							fontSize: 12
+						}
+					}
+				},
+				outline: {
+					itemStyle: {
+						borderColor: '#86c5ff',
+						borderWidth: 0
+					},
+					borderDistance: 0
+				}
+			},{
 				type: 'pie',
 				silent: true,
 				radius: ['80%', '100%'],
@@ -579,6 +776,55 @@ drewWuhanMap.drewWuhanMap();
 				containLabel: true
 			},
 			series: [{
+				type: 'liquidFill',
+				itemStyle: {
+					normal: {
+						opacity: 0.4,
+						shadowBlur: 0,
+						shadowColor: 'blue'
+					}
+				},
+				radius: '80%',
+				name: 'nnnnn',
+				data: [{
+					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
+					value:0.6,
+					itemStyle: {
+						normal: {
+							color: '#844cdb',
+							opacity: 0.6
+						}
+					}
+				}],
+				period: function (value, index) {
+					// This function is called four times, each for a data item in series.
+					// `value` is 0.6, 0.5, 0.4, 0.3, and `index` is 0, 1, 2, 3.
+					return 1000 * index + 1000;
+				},
+				// background: '#fff',
+				background:'rgba(0,0,0,0.1)',
+				color: ['#53d5ff'],
+				center: ['50%', '50%'],
+				backgroundStyle: {
+					// 背景颜色
+					color: 'rgba(0,0,0,0.1)'
+				},
+				label: {
+					normal: {
+						formatter: '',
+						textStyle: {
+							fontSize: 12
+						}
+					}
+				},
+				outline: {
+					itemStyle: {
+						borderColor: '#86c5ff',
+						borderWidth: 0
+					},
+					borderDistance: 0
+				}
+			},{
 				type: 'pie',
 				silent: true,
 				radius: ['80%', '100%'],
