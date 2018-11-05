@@ -178,19 +178,18 @@ export default {
   },
   computed:{},
   methods:{
-    
       setAllNum1:function(){
       this.allnum= getRandom({
 					base:2457891,
 					max:'',
 					min:'',
 					count:1,
-					scope:100
+					scope:10
         }).toString()
     }
   },
   mounted:function(){
-    setInterval(this.setAllNum1, 60*1000*30);
+    setInterval(this.setAllNum1, 4*1000);
     setTime.setTime();
     setInterval(setTime.setTime, 1000);
     drawRiskNum();

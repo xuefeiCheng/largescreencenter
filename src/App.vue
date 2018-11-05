@@ -156,7 +156,7 @@ export default {
     
   },
   mounted:function(){
-    // sessionStorage.clear()
+    sessionStorage.clear()
     this.getMap_newInfo();
     this.getHyInfo();
     this.getFjyjInfo();
