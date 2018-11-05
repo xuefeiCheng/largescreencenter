@@ -217,7 +217,7 @@ drewWuhanMap.drewWuhanMap();
 					}
 				},
 				radius: '80%',
-				name: 'nnnnn',
+				name: 'name',
 				data: [{
 					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
 					value:0.7,
@@ -333,7 +333,7 @@ drewWuhanMap.drewWuhanMap();
 					}
 				},
 				radius: '80%',
-				name: 'nnnnn',
+				name: 'name',
 				data: [{
 					// value: (dataLists.qmpc.value/dataLists.qmpc.Fvalue),
 					value:0.55,
