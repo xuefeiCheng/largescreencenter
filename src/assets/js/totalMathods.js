@@ -101,6 +101,7 @@ function getRandom(obj){
 	}
 	return res;
 }
+
 export {
 	cutStringByKey,
 	cutString,
