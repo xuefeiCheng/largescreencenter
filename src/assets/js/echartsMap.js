@@ -75,7 +75,7 @@ drewWuhanMap.drewWuhanMap();
 			},
 			grid: {
 				top:'0',
-				left: '-50',
+				left: '0',
 				right: '0',
 				bottom: '3',
 				containLabel: true 
