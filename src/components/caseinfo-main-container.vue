@@ -8,8 +8,8 @@ export default {
   mounted: function() {
     var canvas = document.getElementById("canvas"),
       ctx = canvas.getContext("2d"),
-      w = (canvas.width = 1920),
-      h = (canvas.height = 1080),
+      w = (canvas.width = 2400),
+      h = (canvas.height = 2080),
       hue = 217,
       stars = [],
       count = 0,
@@ -31,6 +31,12 @@ export default {
     ctx2.arc(half, half, half, 0, Math.PI * 2);
     ctx2.fill();
 
+const left_localtion = -(JSON.parse(sessionStorage.getItem('left_localtion')));
+const top_localtion = -(JSON.parse(sessionStorage.getItem('top_localtion')));
+  canvas.style.left = (Number(left_localtion)-100)+'px';
+  canvas2.style.left = (Number(left_localtion)-100)+'px';
+  canvas.style.top = (Number(top_localtion)-100)+'px';
+  canvas2.style.top = (Number(top_localtion)-100)+'px';
     // End cache
 
     function random(min, max) {

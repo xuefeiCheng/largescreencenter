@@ -36,6 +36,8 @@
 
     caseInfo.resizePage = function() {
         var scaleAndLocation = caseInfo.getScaleAndLocation();
+        sessionStorage.setItem('top_localtion',JSON.stringify(scaleAndLocation.location.y));
+        sessionStorage.setItem('left_localtion',JSON.stringify(scaleAndLocation.location.x));
         if (scaleAndLocation.scale != 1) {
             $(".caseinfo-main-container").css({
                 "transform-origin": "left top",

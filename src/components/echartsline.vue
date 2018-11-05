@@ -164,7 +164,7 @@ export default {
   },
   data:function(){
     return{ 
-      allnum:2457891//信息总量  
+      allnum:6457891//信息总量  
     }
   },
   filters: {
@@ -181,11 +181,11 @@ export default {
   methods:{
       setAllNum1:function(){
       this.allnum= getRandom({
-					base:2457891,
+					base:6457891,
 					max:'',
 					min:'',
 					count:1,
-					scope:10
+					scope:20
         }).toString()
     }
   },
