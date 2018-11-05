@@ -339,6 +339,7 @@ img {
     margin-top: 70px;
     background-image:url(../images/02.png);
     background-size: 100% 111%;
+    /* 2018-11-05 */
     background-position: 0px 0px;
 }
 /* 信息总量 */

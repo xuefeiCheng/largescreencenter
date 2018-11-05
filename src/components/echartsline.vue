@@ -84,6 +84,7 @@
 
           <!-- 右侧中部 -->
           <div class="case-pie">
+            <!-- 2018-11-05  height: 86.8%  style='min-height:280px'-->
             <div class='risktrend noBackImg marginTop56R' style="height: 103%">
               <div class="title">企业风险走势</div>
               <div class="risktrend" id="risktrend" style='min-height:280px'></div>
