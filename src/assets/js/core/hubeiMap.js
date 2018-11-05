@@ -147,6 +147,7 @@ var drawHeatmap = function() {
 		dataObjBar.forEach(function(currentValue, index, arr){
 			// console.log(currentValue)
 			if(currentValue._id == k){
+				currentValue.abstract = currentValue.abstract=='' ? '暂无数据' :currentValue.abstract
 				companyData[currentValue.name] = {
 					mScore:currentValue.score,
 					// riskDescribe:cutString(currentValue.abstract,50)
@@ -399,7 +400,7 @@ function timeTicket() {
 			formatter:function(obj){
 				var companyName = obj.seriesName;
 				return '<div style="border-bottom: 1px solid #cccccc;padding-bottom: 5px; margin-bottom: 5px;font-size:20px;">' + companyName + '</div>'
-				+ '<div style="text-align:left;margin-top:10px;"><div style="float:left;margin-right:10px;">'+ companyData[companyName].riskDescribe + '</div>'
+				+ '<div style="text-align:left;margin-top:10px;"><div style="float:left;width:500px;overflow:hidden;margin-right:10px;">'+ companyData[companyName].riskDescribe + '</div>'
 				+ '<div style="float:right;width:70px;height:80px;text-align:center;border:1px solid #fba430;background:#fba430;"><div>冒烟指数</div><div style="font-size:26px;margin-top:14px;">' + companyData[companyName].mScore + '</div></div></div>';
 			}
 		},
