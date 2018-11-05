@@ -56,7 +56,7 @@ import drewWuhanMap from '@/assets/js/wuhanMap.js'
 drewWuhanMap.drewWuhanMap();
 	//风险企业行业分布
 	function drawLine () {
-		const data = JSON.parse(sessionStorage.getItem('toState')); // => 返回testKey对应的值
+		// const data = JSON.parse(sessionStorage.getItem('toState')); // => 返回testKey对应的值
 		var myChart = echarts.init(document.getElementById('line-content'));
 		//数据集合
 		// var dataObj = {
@@ -1741,7 +1741,7 @@ function getdate(){
 			}]
 		},true);
 		myChartMap.on('click', function (params) {
-			console.log(params);
+			//console.log(params);
 		});
 		
 		var len1 = -1;

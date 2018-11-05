@@ -50,14 +50,16 @@ export default {
         value:[]
       };
       // var gfxCount = 0;
-      res.caseList.map(function(item,index,arr){
+      res.allCaseList.map(function(item,index,arr){
         data.name.push(item.dom);
         data.value.push(item.count.count);
         // gfxCount += item.count.count;
         return data;
       })
       // this.gfxCount = gfxCount;
+      // 风险企业地区分布
        sessionStorage.setItem('dqfb',JSON.stringify(data)); 
+       sessionStorage.setItem('dqfb-map',JSON.stringify(res.caseList)); 
     },
     getMap_newInfo(){
       // 风险企业地区分布
@@ -154,7 +156,7 @@ export default {
     
   },
   mounted:function(){
-    sessionStorage.clear()
+    // sessionStorage.clear()
     this.getMap_newInfo();
     this.getHyInfo();
     this.getFjyjInfo();

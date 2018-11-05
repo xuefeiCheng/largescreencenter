@@ -12,7 +12,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://192.168.2.53:8080',
+        // target: 'http://192.168.2.53:8080',
+        target: 'http://127.0.0.1:8080',
         //接口的域名
         //secure: false 如果是https接口，需要配置
         changeOrigin: true ,//如果接口跨域，需要进行这个参数的配置
@@ -24,7 +25,7 @@ module.exports = {
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,

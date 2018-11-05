@@ -46,6 +46,40 @@ require('zrender/lib/vml/vml')
 require('echarts/lib/component/tooltip')
 require('echarts/lib/component/title')
 
+/**参数说明： 
+ 
+ * 根据长度截取先使用字符串，超长部分追加… 
+ 
+ * str 对象字符串 
+ 
+ * len 目标字节长度 
+ 
+ * 返回值： 处理结果字符串 
+ 
+ */
+function cutString(str, len) { 
+	//length属性读出来的汉字长度为1  
+	if(str.length*2 <= len) {  
+	  return str;  
+	}
+	var strlen = 0;  
+	var s = ""; 
+	for(var i = 0;i < str.length; i++) {  
+	  s = s + str.charAt(i);   
+	  if (str.charCodeAt(i) > 128) {   
+		strlen = strlen + 2;   
+		if(strlen >= len){   
+		  return s.substring(0,s.length-1) + "...";  
+		}  
+	  } else {   
+		strlen = strlen + 1;  
+		if(strlen >= len){  
+		  return s.substring(0,s.length-2) + "...";  
+		} 
+	  }  
+	} 
+	return s; 
+  } 
 import drewWuhanMap from '@/assets/js/wuhanMap.js'
 drewWuhanMap.drewWuhanMap();
 var drawHeatmap = function() {
@@ -63,40 +97,87 @@ var drawHeatmap = function() {
         "蔡甸区":[114.03 ,30.58],
         "江夏区":[114.32,30.35],
         "黄陂区":[114.37 ,30.87],
-        "新洲区":[114.80,30.85]
+		"新洲区":[114.80,30.85]
 	  };
-	  var companyPosition = {
-        "硕利链付宝（武汉）网络科技有限公司":[114.7904,30.85],
-        "深圳市佰仟金融服务有限公司武汉分公司":[114.18 ,30.3902],
-        "北京华赢凯来资产管理有限公司武汉第一分公司":[114.32,30.35],
-        "深圳前海全民通金融资本控股集团有限公司武昌分公司":[114.3310,30.5227],
-        "武汉三三玉茶坊企业管理有限公司":[114.08 ,30.32]
+	  var rltData = [
+		  {name: '江岸区',value: 12,level:2},
+		  {name: '江汉区',value: 12,level:1}, 
+		  {name: '硚口区',value: 10,level:2}, 
+		  {name: '汉阳区',value: 5,level:3},
+		  {name: '武昌区',value: 9,level:1},
+		  {name: '青山区',value: 12,level:2},
+		  {name: '洪山区',value: 12,level:2},
+		  {name: '东西湖区',value: 12,level:2},
+		  {name: '汉南区',value: 12,level:2},
+		  {name: '蔡甸区',value: 12,level:2},
+		  {name: '江夏区',value: 12,level:2},
+		  {name: '黄陂区',value: 12,level:2},
+		  {name: '新洲区',value: 12,level:2}
+		]
+	  var companyData = {};
+	  var companyPosition = {};
+	  var serdata =[];
+	  var innerArr = [];
+	  var middeleArr = [];
+	//   var serdata = 
+	// 	[
+	// 		[
+	// 			'硕利链付宝（武汉）网络科技有限公司', 
+	// 			[
+	// 				[{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'蔡甸区',value:95}]
+	// 			]
+	// 		],
+	// 		[
+	// 			'深圳市佰仟金融服务有限公司武汉分公司', 
+	// 			[[{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'蔡甸区',value:95}]]],
+	// 		[
+	// 			"北京华赢凯来资产管理有限公司武汉第一分公司",
+	// 			[[{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'蔡甸区',value:95}]]],
+	// 		[
+	// 			"深圳前海全民通金融资本控股集团有限公司武昌分公司",
+	// 			[[{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'汉阳区',value:95}]]],
+	// 		[
+	// 			"武汉三三玉茶坊企业管理有限公司",
+	// 			[[{name:'武汉三三玉茶坊企业管理有限公司'},{name:'汉阳区',value:95}]]]
+	// 	];
+	  const dataObjBar = JSON.parse(sessionStorage.getItem('dqfb-map'));
+	//   console.log(dataObjBar);
+	  for(var k in geoCoordMap){
+		// console.log(k)
+		dataObjBar.forEach(function(currentValue, index, arr){
+			// console.log(currentValue)
+			if(currentValue._id == k){
+				companyData[currentValue.name] = {
+					mScore:currentValue.score,
+					// riskDescribe:cutString(currentValue.abstract,50)
+					// 文本 输入有换行 则展示换行
+					riskDescribe:currentValue.abstract.replace(/\n/g, "<br/>")
+				}
+				companyPosition[currentValue.name] = geoCoordMap[k];
+				// serdata1.push()
+				innerArr=[ [{name:currentValue.name},{name:'蔡甸区',value:95}] ];
+				middeleArr = [currentValue.name,innerArr];
+				serdata.push(middeleArr)
+			}
+		})
 	  }
+	//   var companyPosition = {
+    //     "硕利链付宝（武汉）网络科技有限公司":[114.7904,30.85],
+    //     "深圳市佰仟金融服务有限公司武汉分公司":[114.18 ,30.3902],
+    //     "北京华赢凯来资产管理有限公司武汉第一分公司":[114.32,30.35],
+    //     "深圳前海全民通金融资本控股集团有限公司武昌分公司":[114.3310,30.5227],
+    //     "武汉三三玉茶坊企业管理有限公司":[114.08 ,30.32]
+	//   }
 	geoCoordMap = $.extend({}, geoCoordMap, companyPosition);
-	var BJData = [
-        [{name:'硕利链付宝（武汉）网络科技有限公司'}, {name:'蔡甸区',value:95}]
-    ];
-    var SHData = [
-        [{name:'深圳市佰仟金融服务有限公司武汉分公司'},{name:'蔡甸区',value:95}]
-    ];
-    var SXData = [
-        [{name:'北京华赢凯来资产管理有限公司武汉第一分公司'},{name:'蔡甸区',value:95}]
-    ];
-    var OEData = [
-        [{name:'深圳前海全民通金融资本控股集团有限公司武昌分公司'},{name:'汉阳区',value:95}]
-    ];
-    var ZHdata = [
-        [{name:'武汉三三玉茶坊企业管理有限公司'},{name:'汉阳区',value:95}]
-	];
 	
 	// 地图 tip展示 数据
-	var companyData = {
-		"硕利链付宝（武汉）网络科技有限公司":{"mScore":75,"riskDescribe":"1、帮呗经营模式涉嫌传销2.涉嫌庞氏骗局<br> 3.涉嫌违规经营<br> 4.存在经营异常"},
-		"深圳市佰仟金融服务有限公司武汉分公司":{"mScore":74,"riskDescribe":"1.频繁变更工商信息2.存在涉诉信息3.存在失信被执行人信息<br> 4.网曝涉嫌诈骗"},
-		"北京华赢凯来资产管理有限公司武汉第一分公司":{"mScore":59,"riskDescribe":"1.存在经营异常,通过登记的住所或者经营场所无法联系；<br> 2.存在大量负面舆情"},
-		"深圳前海全民通金融资本控股集团有限公司武昌分公司":{"mScore":73,"riskDescribe":"1.总公司存在涉诉信息2.总公司涉嫌向不特定对象宣传募集资金<br> 3.总公司银监异常 4.建议锁定<br> 5.机制不健全6.总公司存在行政处罚"},
-		"武汉三三玉茶坊企业管理有限公司":{"mScore":85,"riskDescribe":"1.涉嫌利用原始股的方式诈骗。2.涉嫌传销。<br>3.虚假宣传。"},
-		}
+	// var companyData = {
+	// 	"硕利链付宝（武汉）网络科技有限公司":{"mScore":75,"riskDescribe":"1、帮呗经营模式涉嫌传销2.涉嫌庞氏骗局<br> 3.涉嫌违规经营<br> 4.存在经营异常"},
+	// 	"深圳市佰仟金融服务有限公司武汉分公司":{"mScore":74,"riskDescribe":"1.频繁变更工商信息2.存在涉诉信息3.存在失信被执行人信息<br> 4.网曝涉嫌诈骗"},
+	// 	"北京华赢凯来资产管理有限公司武汉第一分公司":{"mScore":59,"riskDescribe":"1.存在经营异常,通过登记的住所或者经营场所无法联系；<br> 2.存在大量负面舆情"},
+	// 	"深圳前海全民通金融资本控股集团有限公司武昌分公司":{"mScore":73,"riskDescribe":"1.总公司存在涉诉信息2.总公司涉嫌向不特定对象宣传募集资金<br> 3.总公司银监异常 4.建议锁定<br> 5.机制不健全6.总公司存在行政处罚"},
+	// 	"武汉三三玉茶坊企业管理有限公司":{"mScore":85,"riskDescribe":"1.涉嫌利用原始股的方式诈骗。2.涉嫌传销。<br>3.虚假宣传。"},
+	// 	}
 	var convertData = function (data) {
 		var res = [];
 		for (var i = 0; i < data.length; i++) {
@@ -136,14 +217,6 @@ var drawHeatmap = function() {
 	var color = ['#ffa022',"#f37e7f","#cddc39","#ff5722","#b73e43"];
 	var series = [];
 	var len = 0;
-	var serdata = 
-		[
-			['硕利链付宝（武汉）网络科技有限公司', BJData],
-			['深圳市佰仟金融服务有限公司武汉分公司', SHData],
-			["北京华赢凯来资产管理有限公司武汉第一分公司",SXData],
-			["深圳前海全民通金融资本控股集团有限公司武昌分公司",OEData],
-			["武汉三三玉茶坊企业管理有限公司",ZHdata]
-		];
 	serdata.forEach(function (item, i) {
 		series.push({
         	name: item[0],
@@ -286,27 +359,6 @@ var drawHeatmap = function() {
 	});
 	// console.log(series3);
 	//console.log(series);
-	var rltData = [{
-        name: '江岸区',
-        value: 12,
-        level:2
-    }, {
-        name: '汉阳区',
-        value: 12,
-        level:1
-    }, {
-        name: '东西湖区',
-        value: 10,
-        level:2
-    }, {
-        name: '江夏区',
-        value: 5,
-        level:3
-    }, {
-        name: '黄陂区',
-        value: 9,
-        level:1
-    }]
 var curIndx = 0;
 timeTicket();
 setInterval(timeTicket, 4000);
@@ -348,7 +400,7 @@ function timeTicket() {
 				var companyName = obj.seriesName;
 				return '<div style="border-bottom: 1px solid #cccccc;padding-bottom: 5px; margin-bottom: 5px;font-size:20px;">' + companyName + '</div>'
 				+ '<div style="text-align:left;margin-top:10px;"><div style="float:left;margin-right:10px;">'+ companyData[companyName].riskDescribe + '</div>'
-				+ '<div style="float:left;width:70px;height:80px;text-align:center;border:1px solid #fba430;background:#fba430;"><div>冒烟指数</div><div style="font-size:26px;margin-top:14px;">' + companyData[companyName].mScore + '</div></div></div>';
+				+ '<div style="float:right;width:70px;height:80px;text-align:center;border:1px solid #fba430;background:#fba430;"><div>冒烟指数</div><div style="font-size:26px;margin-top:14px;">' + companyData[companyName].mScore + '</div></div></div>';
 			}
 		},
 		geo: {
