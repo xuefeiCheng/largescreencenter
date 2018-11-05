@@ -20,7 +20,7 @@
             <div class='allnum-inner-bg'>
               <div class="allnum-title">信息总量</div>
               <div class="allnum-content">
-                <h1 style='display:inline-block;padding-right:5px;'>{{allnum}}</h1>
+                <h1 style='display:inline-block;padding-right:5px;'>{{allnum | NumFormat}}</h1>
                 <span class='allnum-font'>条</span>
               </div>
             </div>
@@ -147,6 +147,7 @@
 import echarts from 'echarts'
 import setTime from '@/assets/js/time.js'
 import axios from 'axios'
+import {getRandom} from '@/assets/js/totalMathods.js'
 // drawIndustryTrends
 // drawHeatmap
 import {drawRiskNum,drawBar,drawLine,drawRiskTrend,drawIndustryTrends} from '@/assets/js/echartsMap.js'
@@ -162,11 +163,34 @@ export default {
   },
   data:function(){
     return{ 
-      allnum:'24578,91'//信息总量  
+      allnum:2457891//信息总量  
     }
   },
-  methods:{},
+  filters: {
+     NumFormat: function (value) {
+        if(value!=null){
+          value = Number(value);
+          return value.toFixed(0).replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g,'$&,');
+        }else{
+          return ;
+        }
+      }
+  },
+  computed:{},
+  methods:{
+    
+      setAllNum1:function(){
+      this.allnum= getRandom({
+					base:2457891,
+					max:'',
+					min:'',
+					count:1,
+					scope:100
+        }).toString()
+    }
+  },
   mounted:function(){
+    setInterval(this.setAllNum1, 60*1000*30);
     setTime.setTime();
     setInterval(setTime.setTime, 1000);
     drawRiskNum();

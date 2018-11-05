@@ -87,13 +87,13 @@ function getRandom(obj){
 	var res = [];
 	var scope=0;
 	if(obj.min && obj.max){
-		console.log("min&&max")
+		// console.log("min&&max")
 		scope = (obj.max-obj.min+1)+obj.min
 	}else if(obj.min){
-		console.log("min")
+		// console.log("min")
 		scope = obj.min+1;
 	}else{
-		console.log("others")
+		// console.log("others")
 		scope = obj.scope
 	}
 	for(var i=0;i<obj.count;i++){

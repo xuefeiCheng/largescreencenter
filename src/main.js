@@ -15,7 +15,6 @@ import store from '@/store/index.js'
 Vue.config.productionTip = false
 Vue.prototype.axios = axios
 Vue.use(Vuex)
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

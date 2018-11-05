@@ -1035,7 +1035,7 @@ function getdate(){
 					max:'',
 					min:'',
 					count:10,
-					scope:8
+					scope:5
 				}),
 				// 'value1':[32,33,32,34,33,34,35,34,33,33,32]
 				'value1':getRandom({
