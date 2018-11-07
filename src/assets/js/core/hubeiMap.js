@@ -111,9 +111,11 @@ var drawHeatmap = function() {
 	  for(var k in geoCoordMap){
 		// console.log(k)
 		dataObjBar.forEach(function(currentValue, index, arr){
-			// console.log(currentValue)
 			if(currentValue._id == k){
-				var resultDData = cutStringByKey(currentValue.abstract,['企业主要风险点：','企业主要风险点为：','主要风险点:']);
+				if(currentValue.resObjs.length!=0){
+					// resObjs中多个企业 暂时取第一家
+					var currentValue = currentValue.resObjs[0];
+					var resultDData = cutStringByKey(currentValue.abstract,['企业主要风险点：','企业主要风险点为：','主要风险点:','该企业主要风险点：']);
 				// currentValue.abstract = currentValue.abstract=='' ? '暂无数据' :currentValue.abstract
 				currentValue.abstract = resultDData == '' ? '暂无数据' : resultDData;
 				companyData[currentValue.name] = {
@@ -128,6 +130,7 @@ var drawHeatmap = function() {
 				middeleArr = [currentValue.name,innerArr];
 				serdata.push(middeleArr)
 			}
+		}
 		})
 	  }
 	//   var companyPosition = {
