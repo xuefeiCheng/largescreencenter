@@ -78,7 +78,10 @@ var drawHeatmap = function() {
 		  {name: '蔡甸区',value: 12,level:2},
 		  {name: '江夏区',value: 12,level:2},
 		  {name: '黄陂区',value: 12,level:2},
-		  {name: '新洲区',value: 12,level:2}
+		  {name: '新洲区',value: 12,level:2},
+		  {name: '东湖高新区',value: 12,level:2},
+		  {name: '经济技术开发区',value: 12,level:2},
+		  {name: '屯口区',value: 12,level:2}
 		]
 	  var companyData = {};
 	  var companyPosition = {};
@@ -115,7 +118,7 @@ var drawHeatmap = function() {
 				if(currentValue.resObjs.length!=0){
 					// resObjs中多个企业 暂时取第一家
 					var currentValue = currentValue.resObjs[0];
-					var resultDData = cutStringByKey(currentValue.abstract,['企业主要风险点：','企业主要风险点为：','主要风险点:','该企业主要风险点：']);
+						var resultDData = cutStringByKey(currentValue.abstract,['企业主要风险点：','企业主要风险点为：','风险点：','风险点:']);
 				// currentValue.abstract = currentValue.abstract=='' ? '暂无数据' :currentValue.abstract
 				currentValue.abstract = resultDData == '' ? currentValue.abstract : resultDData;
 				companyData[currentValue.name] = {
@@ -133,6 +136,31 @@ var drawHeatmap = function() {
 		}
 		})
 	  }
+
+
+	/**
+	 * 
+	 * 
+					currentValue.resObjs.forEach(function(cur,i,item){
+						console.log(cur);
+						var resultDData = cutStringByKey(cur.abstract,['企业主要风险点：','企业主要风险点为：','主要风险点:','该企业主要风险点：']);
+				// currentValue.abstract = currentValue.abstract=='' ? '暂无数据' :currentValue.abstract
+				cur.abstract = resultDData == '' ? cur.abstract : resultDData;
+				companyData[cur.name] = {
+					mScore:cur.score,
+					// riskDescribe:cutString(currentValue.abstract,50)
+					// 文本 输入有换行 则展示换行
+					riskDescribe:cur.abstract.replace(/\n/g, "<br/>")
+				}
+				companyPosition[cur.name] = geoCoordMap[k];
+				// serdata1.push()
+				innerArr=[ [{name:cur.name},{name:'蔡甸区',value:95}] ];
+				middeleArr = [cur.name,innerArr];
+				serdata.push(middeleArr)
+					});
+	 * 
+	 * 
+	 */
 	//   var companyPosition = {
     //     "硕利链付宝（武汉）网络科技有限公司":[114.7904,30.85],
     //     "深圳市佰仟金融服务有限公司武汉分公司":[114.18 ,30.3902],
@@ -141,7 +169,6 @@ var drawHeatmap = function() {
     //     "武汉三三玉茶坊企业管理有限公司":[114.08 ,30.32]
 	//   }
 	geoCoordMap = $.extend({}, geoCoordMap, companyPosition);
-	
 	// 地图 tip展示 数据
 	// var companyData = {
 	// 	"硕利链付宝（武汉）网络科技有限公司":{"mScore":75,"riskDescribe":"1、帮呗经营模式涉嫌传销2.涉嫌庞氏骗局<br> 3.涉嫌违规经营<br> 4.存在经营异常"},
