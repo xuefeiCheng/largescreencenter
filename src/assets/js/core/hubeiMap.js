@@ -115,6 +115,7 @@ var drawHeatmap = function() {
 		// console.log(k)
 		dataObjBar.forEach(function(currentValue, index, arr){
 			if(currentValue._id == k){
+				console.log(currentValue._id)
 				if(currentValue.resObjs.length!=0){
 					// resObjs中多个企业 暂时取第一家
 					var currentValue = currentValue.resObjs[0];

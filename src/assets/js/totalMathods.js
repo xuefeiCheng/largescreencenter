@@ -47,7 +47,7 @@ function cutString(str, len) {
 	var index = [];
 	var Index;
 	for(var i=0,le=argumentsArr.length;i<=le;i++){
-		console.log(str.indexOf(argumentsArr[i]))
+	//	console.log(str.indexOf(argumentsArr[i]))
 	  if(str.indexOf(argumentsArr[i])== -1){
 		flag = 0;
 		index.push(999999);
