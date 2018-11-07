@@ -50,10 +50,10 @@ export default {
         value:[]
       };
       // var gfxCount = 0;
-      res.allCaseList.map(function(item,index,arr){
+      res.caseList.map(function(item,index,arr){
         if(item.dom !='武汉'){
-          data.name.push(item.dom);
-          data.value.push(item.count.count);
+          data.name.push(item._id);
+          data.value.push(item.count);
         }
        
         // gfxCount += item.count.count;
