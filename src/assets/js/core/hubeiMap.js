@@ -124,6 +124,7 @@ var drawHeatmap = function() {
 
 						var resultDData = cutStringByKey(cur.abstract,['企业主要风险点：','企业主要风险点为：','主要风险点:','该企业主要风险点：']);
 				// currentValue.abstract = currentValue.abstract=='' ? '暂无数据' :currentValue.abstract
+				if(resultDData == ''){return;}
 				cur.abstract = resultDData == '' ? cur.abstract : resultDData;
 				companyData[cur.name] = {
 					mScore:cur.score,
