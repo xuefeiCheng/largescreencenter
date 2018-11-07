@@ -213,7 +213,7 @@ function echartMap () {
 	var len = 0;
 	var serdata = [['北京华赢凯来资产管理有限公司', BJData], ['善林（上海）金融信息服务有限公司', SHData],["武汉硕维金融服务有限公司",SXData],["宁夏云数贸贸易有限公司",OEData],["珠海横琴新区盖网科技发展有限公司",ZHdata],];
 	serdata.forEach(function (item, i) {
-		console.log(convertData(item[1]))
+		//console.log(convertData(item[1]))
 		series.push({
         	name: item[0],
         	type: 'effectScatter',
@@ -340,7 +340,7 @@ function echartMap () {
 			series5 = [];
 		}
 	});
-	console.log(series3);
+	//console.log(series3);
 	//console.log(series);
 	var rltData = [{
 		name: '湖北',

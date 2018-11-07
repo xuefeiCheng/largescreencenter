@@ -15,19 +15,19 @@
         // 获取的是 可见区域的宽高
         var width = document.documentElement.clientWidth;
         var height = document.documentElement.clientHeight;
-        console.log(width)
-        console.log(height)
+        //console.log(width)
+        //console.log(height)
         if (width / height < 1920 / 1080) {
             scale = width / 1920;
              location.y = (height - 1080 * scale) / 2;
-             console.log("one ")
+            // console.log("one ")
         } else {
             scale = height / 1080;
             location.x = (width - 1920 * scale) / 2;
-            console.log('two')
+          //  console.log('two')
         }
-        console.log('scale')
-        console.log(scale);
+    // console.log('scale')
+    //    console.log(scale);
         return {
             scale: scale,
             location: location
