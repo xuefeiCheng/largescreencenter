@@ -65,24 +65,25 @@ var drawHeatmap = function() {
         "黄陂区":[114.37 ,30.87],
 		"新洲区":[114.80,30.85]
 	  };
-	  var rltData = [
-		  {name: '江岸区',value: 12,level:2},
-		  {name: '江汉区',value: 12,level:1}, 
-		  {name: '硚口区',value: 10,level:2}, 
-		  {name: '汉阳区',value: 5,level:3},
-		  {name: '武昌区',value: 9,level:1},
-		  {name: '青山区',value: 12,level:2},
-		  {name: '洪山区',value: 12,level:2},
-		  {name: '东西湖区',value: 12,level:2},
-		  {name: '汉南区',value: 12,level:2},
-		  {name: '蔡甸区',value: 12,level:2},
-		  {name: '江夏区',value: 12,level:2},
-		  {name: '黄陂区',value: 12,level:2},
-		  {name: '新洲区',value: 12,level:2},
-		  {name: '东湖高新区',value: 12,level:2},
-		  {name: '经济技术开发区',value: 12,level:2},
-		  {name: '屯口区',value: 12,level:2}
-		]
+	//   var rltData = [
+	// 	  {name: '江岸区',value: 12,level:2},
+	// 	  {name: '江汉区',value: 12,level:1}, 
+	// 	  {name: '硚口区',value: 10,level:2}, 
+	// 	  {name: '汉阳区',value: 5,level:3},
+	// 	  {name: '武昌区',value: 9,level:1},
+	// 	  {name: '青山区',value: 12,level:2},
+	// 	  {name: '洪山区',value: 12,level:2},
+	// 	  {name: '东西湖区',value: 12,level:2},
+	// 	  {name: '汉南区',value: 12,level:2},
+	// 	  {name: '蔡甸区',value: 12,level:2},
+	// 	  {name: '江夏区',value: 12,level:2},
+	// 	  {name: '黄陂区',value: 12,level:2},
+	// 	  {name: '新洲区',value: 12,level:2},
+	// 	  {name: '东湖高新区',value: 12,level:2},
+	// 	  {name: '经济技术开发区',value: 12,level:2},
+	// 	  {name: '屯口区',value: 12,level:2}
+	// 	]
+	var rltData = [];
 	  var companyData = {};
 	  var companyPosition = {};
 	  var serdata =[];
@@ -115,8 +116,39 @@ var drawHeatmap = function() {
 		// console.log(k)
 		dataObjBar.forEach(function(currentValue, index, arr){
 			if(currentValue._id == k){
-				console.log(currentValue._id)
 				if(currentValue.resObjs.length!=0){
+					currentValue.resObjs.forEach(function(cur,i,item){
+
+						console.log(cur);
+						var oo = {name: currentValue._id,value: 12,level:2};
+
+						var resultDData = cutStringByKey(cur.abstract,['企业主要风险点：','企业主要风险点为：','主要风险点:','该企业主要风险点：']);
+				// currentValue.abstract = currentValue.abstract=='' ? '暂无数据' :currentValue.abstract
+				cur.abstract = resultDData == '' ? cur.abstract : resultDData;
+				companyData[cur.name] = {
+					mScore:cur.score,
+					// riskDescribe:cutString(currentValue.abstract,50)
+					// 文本 输入有换行 则展示换行
+					riskDescribe:cur.abstract.replace(/\n/g, "<br/>")
+				}
+				companyPosition[cur.name] = geoCoordMap[k];
+				// serdata1.push()
+				innerArr=[ [{name:cur.name},{name:'蔡甸区',value:95}] ];
+				middeleArr = [cur.name,innerArr];
+				serdata.push(middeleArr);
+				rltData.push(oo);
+					});
+
+				
+			}
+		}
+		})
+	  }
+
+/**
+ * 
+ * 
+ * 	
 					// resObjs中多个企业 暂时取第一家
 					var currentValue = currentValue.resObjs[0];
 						var resultDData = cutStringByKey(currentValue.abstract,['企业主要风险点：','企业主要风险点为：','风险点：','风险点:']);
@@ -133,12 +165,7 @@ var drawHeatmap = function() {
 				innerArr=[ [{name:currentValue.name},{name:'蔡甸区',value:95}] ];
 				middeleArr = [currentValue.name,innerArr];
 				serdata.push(middeleArr)
-			}
-		}
-		})
-	  }
-
-
+ */
 	/**
 	 * 
 	 * 
@@ -400,7 +427,7 @@ function timeTicket() {
 				var companyName = obj.seriesName;
 				return '<div style="border-bottom: 1px solid #cccccc;padding-bottom: 5px; margin-bottom: 5px;font-size:20px;">' + companyName + '</div>'
 				// width:500px;overflow:hidden;
-				+ '<div style="text-align:left;margin-top:10px;"><div style="width:598px;white-space: pre-wrap;word-wrap: break-word;word-break: break-all;float:left;margin-right:10px;">'+ companyData[companyName].riskDescribe + '</div>'
+				+ '<div style="text-align:left;margin-top:10px;"><div style="text-overflow:ellipsis;height:103px;width:300px;overflow:hidden;float:left;margin-right:10px;">'+ companyData[companyName].riskDescribe + '</div>'
 				+ '<div style="float:right;width:70px;height:80px;text-align:center;border:1px solid #fba430;background:#fba430;"><div>冒烟指数</div><div style="font-size:26px;margin-top:14px;">' + companyData[companyName].mScore + '</div></div></div>';
 			}
 		},
@@ -475,7 +502,7 @@ function timeTicket() {
 		series:(function(){
 			var res = [];
 			var len = -1;
-			while (len++ < series3.length - 1) {
+			while (len++ < series3.length -1 ) {
 				if (ifSelecte(len)) {
 					return series3[len];
 				}
@@ -485,7 +512,7 @@ function timeTicket() {
 					selected: ifSelecte(len)
 				});
 			}
-              /*  return res;*/
+            //    return res;
 			
 		})()
     },true);
