@@ -117,7 +117,7 @@ var drawHeatmap = function() {
 					var currentValue = currentValue.resObjs[0];
 					var resultDData = cutStringByKey(currentValue.abstract,['企业主要风险点：','企业主要风险点为：','主要风险点:','该企业主要风险点：']);
 				// currentValue.abstract = currentValue.abstract=='' ? '暂无数据' :currentValue.abstract
-				currentValue.abstract = resultDData == '' ? '暂无数据' : resultDData;
+				currentValue.abstract = resultDData == '' ? currentValue.abstract : resultDData;
 				companyData[currentValue.name] = {
 					mScore:currentValue.score,
 					// riskDescribe:cutString(currentValue.abstract,50)
@@ -372,7 +372,7 @@ function timeTicket() {
 				var companyName = obj.seriesName;
 				return '<div style="border-bottom: 1px solid #cccccc;padding-bottom: 5px; margin-bottom: 5px;font-size:20px;">' + companyName + '</div>'
 				// width:500px;overflow:hidden;
-				+ '<div style="text-align:left;margin-top:10px;"><div style="float:left;margin-right:10px;">'+ companyData[companyName].riskDescribe + '</div>'
+				+ '<div style="text-align:left;margin-top:10px;"><div style="width:598px;overflow:hidden;float:left;margin-right:10px;">'+ companyData[companyName].riskDescribe + '</div>'
 				+ '<div style="float:right;width:70px;height:80px;text-align:center;border:1px solid #fba430;background:#fba430;"><div>冒烟指数</div><div style="font-size:26px;margin-top:14px;">' + companyData[companyName].mScore + '</div></div></div>';
 			}
 		},
