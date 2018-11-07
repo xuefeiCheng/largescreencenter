@@ -119,7 +119,7 @@ var drawHeatmap = function() {
 				if(currentValue.resObjs.length!=0){
 					currentValue.resObjs.forEach(function(cur,i,item){
 
-						console.log(cur);
+						// console.log(cur);
 						var oo = {name: currentValue._id,value: 12,level:2};
 
 						var resultDData = cutStringByKey(cur.abstract,['企业主要风险点：','企业主要风险点为：','主要风险点:','该企业主要风险点：']);
